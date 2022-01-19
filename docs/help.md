@@ -1,23 +1,23 @@
 `symbol-bootstrap help`
 =======================
 
-display help for symbol-bootstrap
+Display help for symbol-bootstrap.
 
 * [`symbol-bootstrap help [COMMAND]`](#symbol-bootstrap-help-command)
 
 ## `symbol-bootstrap help [COMMAND]`
 
-display help for symbol-bootstrap
+Display help for symbol-bootstrap.
 
 ```
 USAGE
   $ symbol-bootstrap help [COMMAND]
 
 ARGUMENTS
-  COMMAND  command to show help for
+  COMMAND  Command to show help for.
 
 OPTIONS
-  --all  see all commands in CLI
+  -n, --nested-commands  Include all nested commands in the output.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.17/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_

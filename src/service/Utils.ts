@@ -48,4 +48,7 @@ export class Utils {
         }
         return password;
     }
+    public static getMessage(e: unknown): string {
+        return (e as any)['message'] || `${e}`;
+    }
 }

@@ -15,11 +15,13 @@
  */
 import fetch from 'cross-fetch';
 import { lookup } from 'dns';
+import { firstValueFrom } from 'rxjs';
 import { ChainInfo, RepositoryFactory, RepositoryFactoryHttp, RoleType } from 'symbol-sdk';
 import { Configuration, NodeApi, NodeListFilter, RequestContext } from 'symbol-statistics-service-typescript-fetch-client';
 import { Logger } from '../logger';
 import { ConfigPreset, PeerInfo } from '../model';
 import { KnownError } from './BootstrapUtils';
+import { Utils } from './Utils';
 
 export interface RepositoryInfo {
     repositoryFactory: RepositoryFactory;
@@ -104,14 +106,14 @@ export class RemoteNodeService {
                 urls.map(async (restGatewayUrl): Promise<RepositoryInfo | undefined> => {
                     const repositoryFactory = new RepositoryFactoryHttp(restGatewayUrl);
                     try {
-                        const chainInfo = await repositoryFactory.createChainRepository().getChainInfo().toPromise();
+                        const chainInfo = await firstValueFrom(repositoryFactory.createChainRepository().getChainInfo());
                         return {
                             restGatewayUrl,
                             repositoryFactory,
                             chainInfo,
                         };
                     } catch (e) {
-                        const message = `There has been an error talking to node ${restGatewayUrl}. Error: ${e.message}`;
+                        const message = `There has been an error talking to node ${restGatewayUrl}. Error: ${Utils.getMessage(e)}`;
                         this.logger.warn(message);
                         return undefined;
                     }
@@ -138,7 +140,9 @@ export class RemoteNodeService {
                 urls.push(...nodes.map((n) => n.apiStatus?.restGatewayUrl).filter((url): url is string => !!url));
             } catch (e) {
                 this.logger.warn(
-                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Rest urls cannot be resolved! Error ${e.message}`,
+                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Rest urls cannot be resolved! Error ${Utils.getMessage(
+                        e,
+                    )}`,
                 );
             }
         }
@@ -198,7 +202,9 @@ export class RemoteNodeService {
                 knownPeers.push(...peerInfos);
             } catch (error) {
                 this.logger.warn(
-                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Peers cannot be resolved! Error ${error.message}`,
+                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Peers cannot be resolved! Error ${Utils.getMessage(
+                        error,
+                    )}`,
                 );
             }
         }
