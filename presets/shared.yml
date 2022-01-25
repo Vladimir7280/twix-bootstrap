@@ -181,8 +181,8 @@ incoming_connections_maxConnectionBanAge: 20
 incoming_connections_numConsecutiveFailuresBeforeBanning: 3
 incoming_connections_backlogSize: 512
 
-defaultBanDuration: 12h
-maxBanDuration: 72h
+defaultBanDuration: 15m
+maxBanDuration: 1h
 keepAliveDuration: 48h
 maxBannedNodes: 5000
 numReadRateMonitoringBuckets: 4
