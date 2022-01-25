@@ -30,11 +30,11 @@ duration = 0
 [mosaics]
 
 {{#nemesis.mosaics}}
-{{../baseNamespace}}:{{{name}}} = true
+{{{../baseNamespace}}}:{{{name}}} = true
 {{/nemesis.mosaics}}
 
 {{#nemesis.mosaics}}
-[mosaic>{{{../baseNamespace}}}]
+[mosaic>{{{../baseNamespace}}}:{{{name}}}]
 
 divisibility = {{{toAmount divisibility}}}
 duration = {{{toAmount duration}}}
