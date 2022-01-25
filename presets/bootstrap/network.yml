@@ -7,6 +7,8 @@ maxHarvesterBalance: 9000000000000000
 networkType: 152
 minVoterBalance: 20000
 baseNamespace: 'twix'
+currencyName: 'twix'
+harvestingName: 'twix'
 explorerUrl: http://localhost:90/
 faucetUrl: http://localhost:100/
 beneficiaryAddress: ''
@@ -16,7 +18,8 @@ lastKnownNetworkEpoch: 1
 restExtensions: 'accountLink, aggregate, lockHash, lockSecret, mosaic, metadata, multisig, namespace, receipts, restrictions, transfer'
 nemesis:
     mosaics:
-        - name: 'twix'
+        - name: '{{currencyName}}'
+          repeat: 1
           divisibility: 6
           duration: 0
           supply: 9000000000000000
