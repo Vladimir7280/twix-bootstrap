@@ -1,4 +1,4 @@
-networkDescription: 'Symbol Local Bootstrap'
+networkDescription: 'Twix Local Bootstrap'
 initialCurrencyAtomicUnits: 9000000000000000
 maxMosaicAtomicUnits: 9000000000000000
 totalChainImportance: 9000000000000000
@@ -26,7 +26,7 @@ nemesis:
           isTransferable: true
           isSupplyMutable: false
           isRestrictable: false
-          accounts: 5
+          accounts: 4
 inflation:
     starting-at-height-1: 0
     starting-at-height-10000: 0
