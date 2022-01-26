@@ -67,5 +67,14 @@ inflation:
     starting-at-height-1: 0
     starting-at-height-10000: 0
 treasuryReissuance: 0
-knownRestGateways: []
-knownPeers: []
+knownRestGateways:
+    - http://95.217.7.18:3000
+knownPeers:
+    -
+        publicKey: C5945CC7FBE7D210A43FAE77B3281582C0D051BB350BBB1092ED95D541A21F3E
+        endpoint:
+            host: 95.217.7.18
+            port: 7900
+        metadata:
+            name: seed0.twix.live
+            roles: Api,Peer,Voting
