@@ -19,9 +19,6 @@ transactionsDirectory = {{{transactionsDirectory}}}
 [namespaces]
 
 {{{baseNamespace}}} = true
-{{#nemesis.mosaics}}
-{{{../baseNamespace}}}.{{{name}}} = true
-{{/nemesis.mosaics}}
 
 [namespace>{{{baseNamespace}}}]
 
@@ -30,11 +27,11 @@ duration = 0
 [mosaics]
 
 {{#nemesis.mosaics}}
-{{{../baseNamespace}}}:{{{name}}} = true
+{{{name}}} = true
 {{/nemesis.mosaics}}
 
 {{#nemesis.mosaics}}
-[mosaic>{{{../baseNamespace}}}:{{{name}}}]
+[mosaic>{{{name}}}]
 
 divisibility = {{{toAmount divisibility}}}
 duration = {{{toAmount duration}}}
@@ -43,7 +40,7 @@ isTransferable = {{{isTransferable}}}
 isSupplyMutable = {{{isSupplyMutable}}}
 isRestrictable = {{{isRestrictable}}}
 
-[distribution>{{{../baseNamespace}}}:{{{name}}}]
+[distribution>{{{name}}}]
 {{#currencyDistributions}}
 {{{address}}} = {{{toAmount amount}}}
 {{/currencyDistributions}}
