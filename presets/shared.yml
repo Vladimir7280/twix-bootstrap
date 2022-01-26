@@ -17,18 +17,18 @@ maxDifficultyBlocks: 60
 maxRollbackBlocks: 0
 maxTransactionLifetime: 6h
 maxBlockFutureTime: 500ms
-maxNamespaceDuration: 365d
+maxNamespaceDuration: 730d
 namespaceGracePeriodDuration: 60d
-maxAccountRestrictionValues: 512
+maxAccountRestrictionValues: 100
 maxMosaicRestrictionValues: 20
 maxMessageSize: 4096
-reservedRootNamespaceNames: 'twix, twinx, fix, symbol, symbl, xym, xem, nem, user, account, org, com, biz, net, edu, mil, gov, info'
-defaultDynamicFeeMultiplier: 1000
+reservedRootNamespaceNames: 'twix, twins, fix, symbol, symbl, xym, xem, nem, user, account, org, com, biz, net, edu, mil, gov, info'
+defaultDynamicFeeMultiplier: 100
 minFeeMultiplier: 100
 maxTimeBehindPullTransactionsStart: 5m
 epochAdjustment: 1573430400s
 nodeEqualityStrategy: host
-maxVotingKeyLifetime: 26280
+maxVotingKeyLifetime: 720
 minVotingKeyLifetime: 28
 mosaicRentalFee: 100000
 votingSetGrouping: 180
@@ -36,7 +36,7 @@ maxVotingKeysPerAccount: 3
 autoUpdateVotingKeys: false
 maxTransactionsPerAggregate: 100
 maxCosignaturesPerAggregate: 25
-harvestBeneficiaryPercentage: 10
+harvestBeneficiaryPercentage: 15
 harvestNetworkPercentage: 10
 rootNamespaceRentalFeePerBlock: 100
 childNamespaceRentalFee: 100000
