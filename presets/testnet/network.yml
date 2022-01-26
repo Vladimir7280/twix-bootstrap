@@ -26,7 +26,7 @@ lastKnownNetworkEpoch: 1
 minVotingKeyLifetime: 28
 maxVotingKeyLifetime: 720
 stepDuration: 4m
-maxBlockFutureTime: 300ms
+maxBlockFutureTime: 500ms
 maxAccountRestrictionValues: 100
 maxSecretLockDuration: 365d
 maxNamespaceDuration: 730d
