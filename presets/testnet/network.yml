@@ -40,7 +40,7 @@ totalVotingBalanceCalculationFix: 0
 mosaicRentalFee: 100000
 throttlingBurst: 80
 throttlingRate: 60
-fileDatabaseBatchSize: 100
+fileDatabaseBatchSize: 1
 minProofSize: 0
 syncTimeout: 5m
 maxChildNamespaces: 256
