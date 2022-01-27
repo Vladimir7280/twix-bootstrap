@@ -48,7 +48,6 @@ nonVotingUnfinalizedBlocksDuration: 10m
 treasuryReissuanceEpoch: 0
 treasuryReissuanceEpochIneligibleVoterAddresses: []
 votingUnfinalizedBlocksDuration: 0m
-timeSynchronizationMinImportance: 10000000000
 faucetUrl: ""
 explorerUrl: ""
 statisticsServiceUrl: ""
