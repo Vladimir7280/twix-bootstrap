@@ -1,14 +1,10 @@
 networkDescription: 'Twix Testnet'
-initialCurrencyAtomicUnits: 9000000000000000
-maxMosaicAtomicUnits: 9000000000000000
-totalChainImportance: 9000000000000000
-minHarvesterBalance: 500
-maxHarvesterBalance: 9000000000000000
 networkType: 152
-minVoterBalance: 20000
 baseNamespace: 'twix'
 currencyName: 'twix'
 harvestingName: 'twix'
+batchVerificationRandomSource: /dev/urandom
+enableRevoteOnBoot: false
 explorerUrl: http://localhost:90/
 faucetUrl: http://localhost:100/
 beneficiaryAddress: ''
@@ -22,11 +18,16 @@ nemesis:
           repeat: 1
           divisibility: 6
           duration: 0
-          supply: 9000000000000000
+          supply: 8500000000000000
           isTransferable: true
           isSupplyMutable: false
           isRestrictable: false
-          accounts: 4
+          accounts: 
+            - 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
+            - 0FF822782DEA8A32397C80DE7E549DFB371537CA45148649842B5699471BF1E7
+            - FAF776DC8D7E5B7FF662F57FACEC2F02DD4E0D24F859F3D92242ED4C2B1E0489
+            - C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
+
 inflation:
     starting-at-height-1: 0
     starting-at-height-10000: 0
