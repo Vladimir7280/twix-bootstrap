@@ -84,7 +84,7 @@ dataDirectory: ./data
 votingKeysDirectory: ./votingkeys
 enableDelegatedHarvestersAutoDetection: true
 catapultAppFolder: /usr/catapult
-enableRevoteOnBoot: true
+enableRevoteOnBoot: false
 totalVotingBalanceCalculationFix: 0
 treasuryReissuance: 0
 caCertificateExpirationInDays: 7300 # 20 years
