@@ -2,7 +2,7 @@ networkDescription: Twix Testnet
 baseNamespace: twix
 batchVerificationRandomSource: /dev/urandom
 currencyMosaicId: 553961D2F0B6A6A7
-harvestBeneficiaryPercentage: 25
+harvestBeneficiaryPercentage: 15
 harvestingMosaicId: 553961D2F0B6A6A7
 epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
@@ -22,7 +22,7 @@ importanceGrouping: 180
 votingSetGrouping: 720
 votingKeyDesiredLifetime: 720
 votingKeyDesiredFutureLifetime: 120
-lastKnownNetworkEpoch: 1
+#lastKnownNetworkEpoch: 1
 minVotingKeyLifetime: 28
 maxVotingKeyLifetime: 720
 stepDuration: 4m
