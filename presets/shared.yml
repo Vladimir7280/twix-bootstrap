@@ -230,7 +230,7 @@ statisticsServiceRestLimit: 10
 
 #price.plugin ->
 initialSupply: 100000000
-pricePublisherPublicKey: 'MCowBQYDK2VwAyEAkYn+lqyqSdh8jS9pyrrqinsSH7qArUICeXT3V0Ds9SQ='
+pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
 feeRecalculationFrequency: 5
 multiplierRecalculationFrequency: 5
 pricePeriodBlocks: 10
