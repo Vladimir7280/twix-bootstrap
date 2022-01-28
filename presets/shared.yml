@@ -9,14 +9,14 @@ totalChainImportance: 8500000000000000
 minHarvesterBalance: 10000000000
 maxHarvesterBalance: 2000000000000000
 minVoterBalance: 100000000000000
-blockGenerationTargetTime: 30s
+blockGenerationTargetTime: 15s
 blockTimeSmoothingFactor: 3000
 importanceGrouping: 180
 importanceActivityPercentage: 5
 maxDifficultyBlocks: 60
 maxRollbackBlocks: 0
 maxTransactionLifetime: 6h
-maxBlockFutureTime: 500ms
+maxBlockFutureTime: 300ms
 maxNamespaceDuration: 730d
 namespaceGracePeriodDuration: 60d
 maxAccountRestrictionValues: 100
@@ -31,7 +31,7 @@ nodeEqualityStrategy: host
 maxVotingKeyLifetime: 720
 minVotingKeyLifetime: 28
 mosaicRentalFee: 100000
-votingSetGrouping: 360
+votingSetGrouping: 720
 maxVotingKeysPerAccount: 3
 autoUpdateVotingKeys: false
 maxTransactionsPerAggregate: 100
