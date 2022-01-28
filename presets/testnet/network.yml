@@ -32,7 +32,7 @@ maxSecretLockDuration: 365d
 maxNamespaceDuration: 730d
 minNamespaceDuration: 60d
 namespaceGracePeriodDuration: 60d
-blockGenerationTargetTime: 10s
+blockGenerationTargetTime: 30s
 defaultDynamicFeeMultiplier: 100
 rootNamespaceRentalFeePerBlock: 100
 childNamespaceRentalFee: 100000

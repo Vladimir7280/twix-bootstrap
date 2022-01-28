@@ -9,7 +9,7 @@ totalChainImportance: 8500000000000000
 minHarvesterBalance: 10000000000
 maxHarvesterBalance: 2000000000000000
 minVoterBalance: 100000000000000
-blockGenerationTargetTime: 10s
+blockGenerationTargetTime: 30s
 blockTimeSmoothingFactor: 3000
 importanceGrouping: 60
 importanceActivityPercentage: 5
