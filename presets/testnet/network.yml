@@ -68,7 +68,7 @@ inflation:
 treasuryReissuance: 0
 knownRestGateways:
     - http://95.217.7.18:3000
-    - http://188.166.165.212:3000
+    - http://95.216.166.218:3000
     - http://159.223.3.85:3000
 knownPeers:
     -
@@ -82,7 +82,7 @@ knownPeers:
     -
         publicKey: 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
         endpoint:
-            host: 188.166.165.212
+            host: 95.216.166.218
             port: 7900
         metadata:
             name: seed1.twix.live
