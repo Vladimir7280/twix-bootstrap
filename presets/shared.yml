@@ -31,7 +31,7 @@ nodeEqualityStrategy: host
 maxVotingKeyLifetime: 720
 minVotingKeyLifetime: 28
 mosaicRentalFee: 100000
-votingSetGrouping: 180
+votingSetGrouping: 720
 maxVotingKeysPerAccount: 3
 autoUpdateVotingKeys: false
 maxTransactionsPerAggregate: 100
@@ -84,7 +84,7 @@ dataDirectory: ./data
 votingKeysDirectory: ./votingkeys
 enableDelegatedHarvestersAutoDetection: true
 catapultAppFolder: /usr/catapult
-enableRevoteOnBoot: false
+enableRevoteOnBoot: true
 totalVotingBalanceCalculationFix: 0
 treasuryReissuance: 0
 caCertificateExpirationInDays: 7300 # 20 years

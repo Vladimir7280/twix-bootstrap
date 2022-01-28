@@ -4,12 +4,12 @@ baseNamespace: 'twix'
 currencyName: 'twix'
 harvestingName: 'twix'
 batchVerificationRandomSource: /dev/urandom
-enableRevoteOnBoot: false
 explorerUrl: http://localhost:90/
 faucetUrl: http://localhost:100/
 beneficiaryAddress: ''
 votingKeyDesiredLifetime: 720
 votingKeyDesiredFutureLifetime: 120
+votingKeysDirectory: ../../../votingkeys
 lastKnownNetworkEpoch: 1
 restExtensions: 'accountLink, aggregate, lockHash, lockSecret, mosaic, metadata, multisig, namespace, receipts, restrictions, transfer'
 nemesis:
