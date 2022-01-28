@@ -19,7 +19,7 @@ networkType: 152
 totalChainImportance: 8500000000000000
 initialCurrencyAtomicUnits: 8500000000000000
 importanceGrouping: 180
-votingSetGrouping: 720
+votingSetGrouping: 360
 votingKeyDesiredLifetime: 720
 votingKeyDesiredFutureLifetime: 120
 #lastKnownNetworkEpoch: 1
