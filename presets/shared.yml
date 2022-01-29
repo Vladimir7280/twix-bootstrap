@@ -161,7 +161,7 @@ enableDispatcherAbortWhenFull: false
 enableDispatcherInputAuditing: false
 maxTrackedNodes: 5'000
 enableAutoHarvesting: true
-fileDatabaseBatchSize: 1
+fileDatabaseBatchSize: 100
 maxUnlockedAccounts: 10
 delegatePrioritizationPolicy: Importance
 dockerComposeVersion: '2.4'
