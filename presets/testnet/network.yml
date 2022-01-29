@@ -6,6 +6,7 @@ harvestBeneficiaryPercentage: 15
 harvestingMosaicId: 553961D2F0B6A6A7
 epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
+timeSynchronizationMinImportance: 10000000000
 maxHarvesterBalance: 2000000000000000
 maxMosaicAtomicUnits: 90000000000000000
 minHarvesterBalance: 10000000000
