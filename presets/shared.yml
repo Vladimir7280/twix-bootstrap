@@ -64,8 +64,7 @@ maxNameSize: 64
 maxChildNamespaces: 256
 maxNamespaceDepth: 3
 batchVerificationRandomSource:
-symbolServerImage: symbolplatform/symbol-server:gcc-10-1.0.3.1
-#newcapital/symbol-server-nc:gcc-1.0.0.1
+symbolServerImage: newcapital/symbol-server-nc:gcc-1.0.0.1
 #symbolplatform/symbol-server:gcc-10-1.0.3.1
 symbolRestImage: symbolplatform/symbol-rest:2.4.0
 symbolExplorerImage: symbolplatform/symbol-explorer:1.1.1-alpha-202110290945
