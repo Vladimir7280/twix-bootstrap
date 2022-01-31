@@ -229,7 +229,8 @@ statisticsServiceRestFilter: suggested
 statisticsServiceRestLimit: 10
 
 #price.plugin ->
-initialSupply: 85000000000
+initialSupply: 8500000000000000
+generationCeiling: 90000000000000000
 pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
 feeRecalculationFrequency: 5
 multiplierRecalculationFrequency: 5
