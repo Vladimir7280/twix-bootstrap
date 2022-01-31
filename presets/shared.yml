@@ -141,7 +141,7 @@ shortLivedCacheTransactionDuration: 10m
 shortLivedCacheBlockDuration: 100m
 shortLivedCachePruneInterval: 90s
 shortLivedCacheMaxSize: 10000000
-transactionSelectionStrategy: oldest
+transactionSelectionStrategy: maximize-fee
 unconfirmedTransactionsCacheMaxResponseSize: 5MB
 unconfirmedTransactionsCacheMaxSize: 20MB
 connectTimeout: 15s
@@ -229,7 +229,7 @@ statisticsServiceRestFilter: suggested
 statisticsServiceRestLimit: 10
 
 #price.plugin ->
-initialSupply: 8500000000000000
+initialSupply: 85000000000
 pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
 feeRecalculationFrequency: 5
 multiplierRecalculationFrequency: 5
