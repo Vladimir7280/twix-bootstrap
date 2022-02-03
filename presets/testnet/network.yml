@@ -70,7 +70,7 @@ treasuryReissuance: 0
 knownRestGateways:
     - http://95.217.7.18:3000
     - http://95.216.166.218:3000
-    - http://188.166.165.212:3000
+    - http://159.65.207.220:3000
 knownPeers:
     -
         publicKey: C5945CC7FBE7D210A43FAE77B3281582C0D051BB350BBB1092ED95D541A21F3E
@@ -89,10 +89,10 @@ knownPeers:
             name: seed4.twix.live
             roles: Api,Peer,Voting
     -
-        publicKey: 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
+        publicKey: C48F88B22D616BEF55FB50E42158183A86BCAACA72ACF320174C7CA0BEE4FCF3
         endpoint:
-            host: 188.166.165.212
+            host: 159.65.207.220
             port: 7900
         metadata:
-            name: seed1.twix.live
+            name: seed5.twix.live
             roles: Api,Peer,Voting
