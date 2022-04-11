@@ -75,7 +75,7 @@ mongoComposeRunParam: --wiredTigerCacheSizeGB 2
 logLevel: 'Info'
 # brokerLogLevel: 'Info'
 # recoveryLogLevel: 'Info'
-# serverLogLevel: 'Info'
+serverLogLevel: 'Debug'
 transactionsDirectory: './transactions'
 binDirectory: ./seed
 seedDirectory: ./seed
