@@ -3,12 +3,12 @@ nodePort: 7900
 enableCacheDatabaseStorage: true
 enableVerifiableState: true
 enableVerifiableReceipts: true
-initialCurrencyAtomicUnits: 8500000000000000
-maxMosaicAtomicUnits: 90000000000000000
-totalChainImportance: 8500000000000000
-minHarvesterBalance: 10000000000
-maxHarvesterBalance: 2000000000000000
-minVoterBalance: 100000000000000
+initialCurrencyAtomicUnits: 1080000000000000000
+maxMosaicAtomicUnits: 9999999900000000000
+totalChainImportance: 1080000000000000000
+minHarvesterBalance: 1000000000000
+maxHarvesterBalance: 200000000000000000
+minVoterBalance: 10000000000000000
 blockGenerationTargetTime: 15s
 blockTimeSmoothingFactor: 3000
 importanceGrouping: 180
@@ -56,7 +56,7 @@ maxProofSize: 4096
 maxValueSize: 4096
 maxMosaicsPerAccount: 1000
 maxMosaicDuration: 730d
-maxMosaicDivisibility: 6
+maxMosaicDivisibility: 8
 maxMultisigDepth: 3
 maxCosignatoriesPerAccount: 25
 maxCosignedAccountsPerAccount: 25
@@ -229,11 +229,11 @@ statisticsServiceRestFilter: suggested
 statisticsServiceRestLimit: 10
 
 #price.plugin ->
-initialSupply: 8500000000000000
+initialSupply: 1080000000000000000
 pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
 feeRecalculationFrequency: 5
 multiplierRecalculationFrequency: 5
 pricePeriodBlocks: 10
 entryLifetime: 500
-generationCeiling: 90000000000000000
+generationCeiling: 9999999900000000000
 #<- price.plugin

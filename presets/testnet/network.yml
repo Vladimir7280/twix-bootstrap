@@ -8,7 +8,7 @@ epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
 timeSynchronizationMinImportance: 10000000000
 maxHarvesterBalance: 2000000000000000
-maxMosaicAtomicUnits: 90000000000000000
+maxMosaicAtomicUnits: 9999999900000000000
 minHarvesterBalance: 10000000000
 minVoterBalance: 100000000000000
 nemesisGenerationHashSeed: A4331E1C2E22455E112A066B0647D71CE0F7B15CF89CB131D7B9208EF4E1DA86
@@ -17,8 +17,8 @@ namespaceRentalFeeSinkAddress: TAQELAYU2ZLLMQMIOXVTZKV6PSOD5ABNVX5LJXA
 mosaicRentalFeeSinkAddress: TBEYSKXPHKGTTG3EIJBPOQQAF7SMWG3WWSEECYQ
 nemesisSignerPublicKey: 50B86B3D67C140D8BA8F4C26F6A29E27C9CAABF7F18337C7A8DBFCF8718CFF3A
 networkType: 152
-totalChainImportance: 8500000000000000
-initialCurrencyAtomicUnits: 8500000000000000
+totalChainImportance: 1080000000000000000
+initialCurrencyAtomicUnits: 1080000000000000000
 importanceGrouping: 180
 votingSetGrouping: 720
 votingKeyDesiredLifetime: 720
@@ -57,9 +57,9 @@ nemesis:
     mosaics:
         -
             name: twix
-            divisibility: 6
+            divisibility: 8
             duration: 0
-            supply: 8500000000000000
+            supply: 1080000000000000000
             isTransferable: true
             isSupplyMutable: false
             isRestrictable: false
