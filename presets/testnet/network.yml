@@ -6,19 +6,19 @@ harvestBeneficiaryPercentage: 15
 harvestingMosaicId: 553961D2F0B6A6A7
 epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
-timeSynchronizationMinImportance: 10000000000
-maxHarvesterBalance: 2000000000000000
-maxMosaicAtomicUnits: 99999999000000000
-minHarvesterBalance: 100000000
-minVoterBalance: 1000000000000
+timeSynchronizationMinImportance: 1000000000000
+maxHarvesterBalance: 200000000000000000
+maxMosaicAtomicUnits: 9999999900000000000
+minHarvesterBalance: 10000000000
+minVoterBalance: 100000000000000
 nemesisGenerationHashSeed: A4331E1C2E22455E112A066B0647D71CE0F7B15CF89CB131D7B9208EF4E1DA86
 harvestNetworkFeeSinkAddress: TCYYX55LWESYTMYM7C4XDV2XYFHAZFEQQRFWNAQ
 namespaceRentalFeeSinkAddress: TAQELAYU2ZLLMQMIOXVTZKV6PSOD5ABNVX5LJXA
 mosaicRentalFeeSinkAddress: TBEYSKXPHKGTTG3EIJBPOQQAF7SMWG3WWSEECYQ
 nemesisSignerPublicKey: 50B86B3D67C140D8BA8F4C26F6A29E27C9CAABF7F18337C7A8DBFCF8718CFF3A
 networkType: 152
-totalChainImportance: 9800000000000000
-initialCurrencyAtomicUnits: 9800000000000000
+totalChainImportance: 980000000000000000
+initialCurrencyAtomicUnits: 980000000000000000
 importanceGrouping: 180
 votingSetGrouping: 720
 votingKeyDesiredLifetime: 720
@@ -35,10 +35,10 @@ minNamespaceDuration: 60d
 namespaceGracePeriodDuration: 60d
 blockGenerationTargetTime: 15s
 defaultDynamicFeeMultiplier: 100
-rootNamespaceRentalFeePerBlock: 100
-childNamespaceRentalFee: 100000
+rootNamespaceRentalFeePerBlock: 10000
+childNamespaceRentalFee: 10000000
 totalVotingBalanceCalculationFix: 0
-mosaicRentalFee: 100000
+mosaicRentalFee: 10000000
 throttlingBurst: 80
 throttlingRate: 60
 fileDatabaseBatchSize: 100
@@ -57,9 +57,9 @@ nemesis:
     mosaics:
         -
             name: twix
-            divisibility: 6
+            divisibility: 8
             duration: 0
-            supply: 9800000000000000
+            supply: 980000000000000000
             isTransferable: true
             isSupplyMutable: false
             isRestrictable: false
