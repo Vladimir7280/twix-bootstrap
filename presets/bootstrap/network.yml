@@ -15,9 +15,9 @@ nemesis:
     mosaics:
         - name: '{{currencyName}}'
           repeat: 1
-          divisibility: 8
+          divisibility: 6
           duration: 0
-          supply: 1080000000000000000
+          supply: 10800000000000000
           isTransferable: true
           isSupplyMutable: false
           isRestrictable: false
