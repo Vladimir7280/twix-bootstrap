@@ -17,8 +17,8 @@ namespaceRentalFeeSinkAddress: TAQELAYU2ZLLMQMIOXVTZKV6PSOD5ABNVX5LJXA
 mosaicRentalFeeSinkAddress: TBEYSKXPHKGTTG3EIJBPOQQAF7SMWG3WWSEECYQ
 nemesisSignerPublicKey: 50B86B3D67C140D8BA8F4C26F6A29E27C9CAABF7F18337C7A8DBFCF8718CFF3A
 networkType: 152
-totalChainImportance: 10800000000000000
-initialCurrencyAtomicUnits: 10800000000000000
+totalChainImportance: 9800000000000000
+initialCurrencyAtomicUnits: 9800000000000000
 importanceGrouping: 180
 votingSetGrouping: 720
 votingKeyDesiredLifetime: 720
@@ -59,7 +59,7 @@ nemesis:
             name: twix
             divisibility: 6
             duration: 0
-            supply: 10800000000000000
+            supply: 9800000000000000
             isTransferable: true
             isSupplyMutable: false
             isRestrictable: false

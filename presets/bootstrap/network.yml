@@ -17,7 +17,7 @@ nemesis:
           repeat: 1
           divisibility: 6
           duration: 0
-          supply: 10800000000000000
+          supply: 9800000000000000
           isTransferable: true
           isSupplyMutable: false
           isRestrictable: false
