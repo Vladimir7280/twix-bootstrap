@@ -8,7 +8,7 @@ epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
 timeSynchronizationMinImportance: 1000000000000
 maxHarvesterBalance: 200000000000000000
-maxMosaicAtomicUnits: 9999999900000000000
+maxMosaicAtomicUnits: 999999990000000000
 minHarvesterBalance: 10000000000
 minVoterBalance: 100000000000000
 nemesisGenerationHashSeed: A4331E1C2E22455E112A066B0647D71CE0F7B15CF89CB131D7B9208EF4E1DA86
