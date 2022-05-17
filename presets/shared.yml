@@ -4,7 +4,7 @@ enableCacheDatabaseStorage: true
 enableVerifiableState: true
 enableVerifiableReceipts: true
 initialCurrencyAtomicUnits: 980000000000000000
-maxMosaicAtomicUnits: 9999999900000000000
+maxMosaicAtomicUnits: 999999990000000000
 totalChainImportance: 980000000000000000
 minHarvesterBalance: 1000000000000
 maxHarvesterBalance: 200000000000000000
@@ -235,5 +235,5 @@ feeRecalculationFrequency: 5
 multiplierRecalculationFrequency: 5
 pricePeriodBlocks: 10
 entryLifetime: 500
-generationCeiling: 9999999900000000000
+generationCeiling: 999999990000000000
 #<- price.plugin
