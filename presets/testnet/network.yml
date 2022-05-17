@@ -7,7 +7,7 @@ harvestingMosaicId: 553961D2F0B6A6A7
 epochAdjustment: 1573430400s
 enableRevoteOnBoot: false
 timeSynchronizationMinImportance: 10000000000
-maxHarvesterBalance: 20000000000000
+maxHarvesterBalance: 2000000000000000
 maxMosaicAtomicUnits: 99999999000000000
 minHarvesterBalance: 100000000
 minVoterBalance: 1000000000000
