@@ -36,9 +36,9 @@ namespaceGracePeriodDuration: 60d
 blockGenerationTargetTime: 15s
 defaultDynamicFeeMultiplier: 100
 rootNamespaceRentalFeePerBlock: 1
-childNamespaceRentalFee: 1000
+childNamespaceRentalFee: 10
 totalVotingBalanceCalculationFix: 0
-mosaicRentalFee: 1000
+mosaicRentalFee: 10
 throttlingBurst: 80
 throttlingRate: 60
 fileDatabaseBatchSize: 100

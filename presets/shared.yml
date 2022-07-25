@@ -232,8 +232,8 @@ statisticsServiceRestLimit: 10
 initialSupply: 108000000000000
 pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
 feeRecalculationFrequency: 5
-multiplierRecalculationFrequency: 5
-pricePeriodBlocks: 10
+multiplierRecalculationFrequency: 1
+pricePeriodBlocks: 1
 entryLifetime: 500
 generationCeiling: 1000000000000000
 #<- price.plugin
