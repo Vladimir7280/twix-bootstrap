@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Account, NetworkType } from 'symbol-sdk';
+import { Account, NetworkType } from 'symbol-sdk-twix';
 import { CertificatePair, KeyName } from '../';
 
 /**

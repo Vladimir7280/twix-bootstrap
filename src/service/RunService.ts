@@ -18,7 +18,7 @@ import { chmodSync, existsSync } from 'fs';
 import * as _ from 'lodash';
 import { join } from 'path';
 import { NodeStatusEnum } from 'symbol-openapi-typescript-fetch-client';
-import { RepositoryFactoryHttp } from 'symbol-sdk';
+import { RepositoryFactoryHttp } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { DockerCompose, DockerComposeService } from '../model';
 import { DefaultAccountResolver } from './AccountResolver';

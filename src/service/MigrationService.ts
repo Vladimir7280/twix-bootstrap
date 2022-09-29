@@ -1,4 +1,4 @@
-import { Account, NetworkType } from 'symbol-sdk';
+import { Account, NetworkType } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { Addresses } from '../model';
 import { ConfigurationUtils } from './ConfigurationUtils';

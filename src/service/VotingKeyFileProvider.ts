@@ -15,7 +15,7 @@
  */
 import { writeFileSync } from 'fs';
 import { join } from 'path';
-import { Account } from 'symbol-sdk';
+import { Account } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { ConfigPreset, NodeAccount, NodePreset } from '../model';
 import { RuntimeService } from './RuntimeService';

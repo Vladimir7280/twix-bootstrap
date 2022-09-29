@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Address, MultisigAccountInfo, RepositoryFactory } from 'symbol-sdk';
+import { Address, MultisigAccountInfo, RepositoryFactory } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { ConfigPreset } from '../model';
 import { RemoteNodeService } from './RemoteNodeService';

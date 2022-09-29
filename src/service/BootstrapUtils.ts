@@ -19,7 +19,7 @@ import * as Handlebars from 'handlebars';
 import * as _ from 'lodash';
 import { totalmem } from 'os';
 import { basename, isAbsolute, join } from 'path';
-import { DtoMapping, NetworkType } from 'symbol-sdk';
+import { DtoMapping, NetworkType } from 'symbol-sdk-twix';
 import { Utils } from './Utils';
 import { YamlUtils } from './YamlUtils';
 

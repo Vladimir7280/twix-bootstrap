@@ -16,7 +16,7 @@
 import { existsSync } from 'fs';
 import * as _ from 'lodash';
 import { join } from 'path';
-import { Account, PublicAccount } from 'symbol-sdk';
+import { Account, PublicAccount } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { Addresses, ConfigAccount, ConfigPreset, CustomPreset, NodePreset } from '../model';
 import { BootstrapUtils, KnownError, Password } from './BootstrapUtils';

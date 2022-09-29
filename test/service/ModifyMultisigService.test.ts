@@ -16,7 +16,7 @@
 
 import { expect } from 'chai';
 import { restore, stub } from 'sinon';
-import { Account, Deadline, MultisigAccountModificationTransaction, NetworkType, TransactionType, UInt64 } from 'symbol-sdk';
+import { Account, Deadline, MultisigAccountModificationTransaction, NetworkType, TransactionType, UInt64 } from 'symbol-sdk-twix';
 import { LoggerFactory, LogType } from '../../src';
 import { ConfigPreset } from '../../src/model';
 import { ModifyMultisigParams, ModifyMultisigService, TransactionFactoryParams, TransactionUtils } from '../../src/service';

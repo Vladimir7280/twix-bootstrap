@@ -15,7 +15,7 @@
  */
 import fetch from 'cross-fetch';
 import { lookup } from 'dns';
-import { ChainInfo, RepositoryFactory, RepositoryFactoryHttp, RoleType } from 'symbol-sdk';
+import { ChainInfo, RepositoryFactory, RepositoryFactoryHttp, RoleType } from 'symbol-sdk-twix';
 import { Configuration, NodeApi, NodeListFilter, RequestContext } from 'symbol-statistics-service-typescript-fetch-client';
 import { Logger } from '../logger';
 import { ConfigPreset, PeerInfo } from '../model';

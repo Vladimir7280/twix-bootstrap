@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import * as _ from 'lodash';
-import { Crypto } from 'symbol-sdk';
+import { Crypto } from 'symbol-sdk-twix';
 import { PrivateKeySecurityMode } from '../model';
 import { KnownError } from './BootstrapUtils';
 

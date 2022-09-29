@@ -24,7 +24,7 @@ import {
     UInt64,
     VotingKeyLinkTransaction,
     VrfKeyLinkTransaction,
-} from 'symbol-sdk';
+} from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { Addresses, ConfigPreset, NodeAccount } from '../model';
 import { AccountResolver, BootstrapAccountResolver } from '../service';

@@ -28,7 +28,7 @@ import {
     TransactionType,
     UInt64,
     VotingKeyLinkTransaction,
-} from 'symbol-sdk';
+} from 'symbol-sdk-twix';
 import { Assembly, LoggerFactory, LogType } from '../../src';
 import { BootstrapService, ConfigService, LinkService, LinkServiceTransactionFactoryParams, Preset } from '../../src/service';
 const logger = LoggerFactory.getLogger(LogType.Silent);

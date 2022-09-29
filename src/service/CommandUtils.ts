@@ -17,7 +17,7 @@ import { flags } from '@oclif/command';
 import { IOptionFlag } from '@oclif/command/lib/flags';
 import { textSync } from 'figlet';
 import { prompt } from 'inquirer';
-import { Convert, PublicAccount } from 'symbol-sdk';
+import { Convert, PublicAccount } from 'symbol-sdk-twix';
 import { Logger, LoggerFactory, LogType } from '../logger';
 import { Constants } from './Constants';
 

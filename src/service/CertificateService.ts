@@ -16,7 +16,7 @@
 
 import { existsSync, writeFileSync } from 'fs';
 import { join, resolve } from 'path';
-import { Convert, Crypto, NetworkType } from 'symbol-sdk';
+import { Convert, Crypto, NetworkType } from 'symbol-sdk-twix';
 import { Logger } from '../logger';
 import { CertificatePair } from '../model';
 import { AccountResolver } from './AccountResolver';

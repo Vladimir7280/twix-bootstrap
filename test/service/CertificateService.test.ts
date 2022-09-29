@@ -19,7 +19,7 @@ import { deepStrictEqual } from 'assert';
 import { promises as fsPromises, readFileSync } from 'fs';
 import 'mocha';
 import { join } from 'path';
-import { Account, NetworkType } from 'symbol-sdk';
+import { Account, NetworkType } from 'symbol-sdk-twix';
 import { LoggerFactory, LogType } from '../../src/logger';
 import {
     CertificateMetadata,

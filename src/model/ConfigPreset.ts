@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { NetworkType } from 'symbol-sdk';
+import { NetworkType } from 'symbol-sdk-twix';
 import { DockerCompose, DockerComposeService } from './DockerCompose';
 
 export enum PrivateKeySecurityMode {

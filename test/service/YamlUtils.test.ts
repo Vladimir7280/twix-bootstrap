@@ -18,7 +18,7 @@ import { expect } from 'chai';
 import * as _ from 'lodash';
 import 'mocha';
 import { it } from 'mocha';
-import { Account, NetworkType } from 'symbol-sdk';
+import { Account, NetworkType } from 'symbol-sdk-twix';
 import { ConfigurationUtils, YamlUtils } from '../../src';
 import { ConfigAccount } from '../../src/model';
 import { CryptoUtils } from '../../src/service';

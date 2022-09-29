@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { prompt } from 'inquirer';
-import { Account, NetworkType, PublicAccount } from 'symbol-sdk';
+import { Account, NetworkType, PublicAccount } from 'symbol-sdk-twix';
 import { AccountResolver, CertificatePair, CommandUtils, KeyName, KnownError, Logger } from '../';
 
 /**

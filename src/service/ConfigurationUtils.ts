@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { join } from 'path';
-import { Account, NetworkType, PublicAccount } from 'symbol-sdk';
+import { Account, NetworkType, PublicAccount } from 'symbol-sdk-twix';
 import { ConfigAccount, ConfigPreset, NodePreset } from '../model';
 import { Constants } from './Constants';
 import { YamlUtils } from './YamlUtils';
