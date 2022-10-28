@@ -87,6 +87,7 @@ catapultAppFolder: /usr/catapult
 enableRevoteOnBoot: true
 totalVotingBalanceCalculationFix: 0
 treasuryReissuance: 0
+strictAggregateTransactionHash: 0
 caCertificateExpirationInDays: 7300 # 20 years
 nodeCertificateExpirationInDays: 375 # 1.02 years
 certificateExpirationWarningInDays: 30 # certificates are allowed to be renewed 30 before expiring
@@ -227,6 +228,8 @@ statisticsServicePeerFilter: ''
 statisticsServicePeerLimit: 50
 statisticsServiceRestFilter: suggested
 statisticsServiceRestLimit: 10
+
+corruptAggregateTransactionHashes: []
 
 #price.plugin ->
 initialSupply: 108000000000000
