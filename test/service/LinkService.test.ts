@@ -17,7 +17,7 @@
 import { expect } from 'chai';
 import 'mocha';
 import { it } from 'mocha';
-import { AccountInfoDTO } from 'symbol-openapi-typescript-fetch-client';
+import { AccountInfoDTO } from 'twix-openapi-typescript-fetch-client';
 import {
     AccountHttp,
     AccountInfo,
@@ -28,7 +28,7 @@ import {
     TransactionType,
     UInt64,
     VotingKeyLinkTransaction,
-} from 'symbol-sdk-twix';
+} from 'twix-sdk';
 import { Assembly, LoggerFactory, LogType } from '../../src';
 import { BootstrapService, ConfigService, LinkService, LinkServiceTransactionFactoryParams, Preset } from '../../src/service';
 const logger = LoggerFactory.getLogger(LogType.Silent);

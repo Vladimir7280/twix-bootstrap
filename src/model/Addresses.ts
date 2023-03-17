@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { NetworkType } from 'symbol-sdk-twix';
+import { NetworkType } from 'twix-sdk';
 import { VotingKeyFile } from '../service';
 
 export interface CertificatePair {

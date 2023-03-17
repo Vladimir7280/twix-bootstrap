@@ -22,7 +22,7 @@ import {
     NetworkType,
     Transaction,
     UnresolvedAddress,
-} from 'symbol-sdk-twix';
+} from 'twix-sdk';
 import { Logger } from '../logger';
 import { Addresses, ConfigPreset } from '../model';
 import { AccountResolver } from './AccountResolver';

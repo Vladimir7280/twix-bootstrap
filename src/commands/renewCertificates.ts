@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import { Command, flags } from '@oclif/command';
-import { Account } from 'symbol-sdk-twix';
+import { Account } from 'twix-sdk';
 import { LoggerFactory, System } from '../logger';
 import { CertificatePair, ConfigAccount } from '../model';
 import { BootstrapAccountResolver, CertificateService, CommandUtils, ConfigLoader, Constants, RenewMode } from '../service';

@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { describe } from 'mocha';
-import { Account, NetworkType } from 'symbol-sdk-twix';
+import { Account, NetworkType } from 'twix-sdk';
 import { DefaultAccountResolver, KeyName, LoggerFactory, LogType, PrivateKeySecurityMode } from '../../src';
 import { AddressesService } from '../../src/service/AddressesService';
 

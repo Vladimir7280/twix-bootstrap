@@ -19,7 +19,7 @@ import { IOptionFlag } from '@oclif/command/lib/flags';
 import { existsSync, readFileSync } from 'fs';
 import { prompt } from 'inquirer';
 import { join } from 'path';
-import { Account, NetworkType, PublicAccount } from 'symbol-sdk-twix';
+import { Account, NetworkType, PublicAccount } from 'twix-sdk';
 import { Logger, LoggerFactory, LogType } from '../logger';
 import { CustomPreset, PrivateKeySecurityMode } from '../model';
 import {

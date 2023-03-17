@@ -31,7 +31,7 @@ import {
     TransactionService,
     TransferTransaction,
     UInt64,
-} from 'symbol-sdk-twix';
+} from 'twix-sdk';
 import {
     AccountResolver,
     AnnounceService,

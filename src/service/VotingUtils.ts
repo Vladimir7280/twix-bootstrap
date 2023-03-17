@@ -16,7 +16,7 @@
 import { existsSync, lstatSync, readdirSync, readFileSync } from 'fs';
 import * as noble from 'noble-ed25519';
 import { join } from 'path';
-import { Convert, Crypto } from 'symbol-sdk-twix';
+import { Convert, Crypto } from 'twix-sdk';
 import * as nacl from 'tweetnacl';
 
 export interface KeyPair {

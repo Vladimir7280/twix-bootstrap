@@ -17,7 +17,7 @@
 import { expect } from 'chai';
 import { readFileSync } from 'fs';
 import 'mocha';
-import { Convert, KeyPair } from 'symbol-sdk-twix';
+import { Convert, KeyPair } from 'twix-sdk';
 import { VotingKeyAccount, VotingUtils } from '../../src/service';
 describe('VotingUtils', () => {
     async function assertVotingKey(

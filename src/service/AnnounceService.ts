@@ -39,7 +39,7 @@ import {
     TransactionType,
     TransferTransaction,
     UInt64,
-} from 'symbol-sdk-twix';
+} from 'twix-sdk';
 import { Logger } from '../logger';
 import { Addresses, ConfigPreset, NodeAccount, NodePreset } from '../model';
 import { AccountResolver } from './AccountResolver';

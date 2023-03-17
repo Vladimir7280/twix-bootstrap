@@ -29,7 +29,7 @@ import {
     UInt64,
     VotingKeyLinkTransaction,
     VrfKeyLinkTransaction,
-} from 'symbol-sdk-twix';
+} from 'twix-sdk';
 import { Logger } from '../logger';
 import { Addresses, ConfigPreset, CustomPreset, GatewayConfigPreset, NodeAccount, PeerInfo } from '../model';
 import { AccountResolver, DefaultAccountResolver } from './AccountResolver';

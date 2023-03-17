@@ -16,7 +16,7 @@
 
 import { expect } from 'chai';
 import { it } from 'mocha';
-import { LinkAction } from 'symbol-sdk-twix';
+import { LinkAction } from 'twix-sdk';
 import { LoggerFactory, LogType } from '../../src';
 import { GenericNodeAccount, KeyAccount, LinkTransactionGenericFactory, VotingKeyAccount } from '../../src/service';
 

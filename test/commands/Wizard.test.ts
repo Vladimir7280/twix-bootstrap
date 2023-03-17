@@ -15,7 +15,7 @@
  */
 
 import { expect } from 'chai';
-import { Account, NetworkType } from 'symbol-sdk-twix';
+import { Account, NetworkType } from 'twix-sdk';
 import {
     Assembly,
     Constants,

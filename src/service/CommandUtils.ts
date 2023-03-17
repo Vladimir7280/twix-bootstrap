@@ -17,7 +17,7 @@ import { flags } from '@oclif/command';
 import { IOptionFlag } from '@oclif/command/lib/flags';
 import { textSync } from 'figlet';
 import { prompt } from 'inquirer';
-import { Convert, PublicAccount } from 'symbol-sdk-twix';
+import { Convert, PublicAccount } from 'twix-sdk';
 import { Logger, LoggerFactory, LogType } from '../logger';
 import { Constants } from './Constants';
 
@@ -41,7 +41,7 @@ export class CommandUtils {
     });
 
     public static showBanner(): void {
-        console.log(textSync('symbol-bootstrap', { horizontalLayout: 'fitted' }));
+        console.log(textSync('twix-bootstrap', { horizontalLayout: 'fitted' }));
     }
 
     public static getPasswordFlag(description: string): IOptionFlag<string | undefined> {
