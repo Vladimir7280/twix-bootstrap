@@ -23,7 +23,7 @@ export default class Run extends Command {
     static description =
         'It boots the network via docker using the generated `docker-compose.yml` file and configuration. The config and compose methods/commands need to be called before this method. This is just a wrapper for the `docker-compose up` bash call.';
 
-    static examples = [`$ symbol-bootstrap run`];
+    static examples = [`$ twix-bootstrap run`];
 
     static flags = {
         help: CommandUtils.helpFlag,

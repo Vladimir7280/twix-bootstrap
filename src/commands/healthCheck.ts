@@ -29,7 +29,7 @@ This command checks:
 The health check process handles 'repeat' and custom 'openPort' services.
     `;
 
-    static examples = [`$ symbol-bootstrap healthCheck`];
+    static examples = [`$ twix-bootstrap healthCheck`];
 
     static flags = {
         help: CommandUtils.helpFlag,

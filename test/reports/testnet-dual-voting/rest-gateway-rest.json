@@ -88,7 +88,7 @@
   },
   "numBlocksTransactionFeeStats": 300,
   "deployment": {
-    "deploymentTool": "symbol-bootstrap",
+    "deploymentTool": "twix-bootstrap",
     "deploymentToolVersion": "abc",
     "lastUpdatedDate": "2021-05-22"
   }

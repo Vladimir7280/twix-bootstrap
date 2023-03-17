@@ -21,7 +21,7 @@ import { CommandUtils, VerifyService } from '../service';
 export default class Verify extends Command {
     static description =
         'It tests the installed software in the current computer reporting if there is any missing dependency, invalid version, or software related issue.';
-    static examples = [`$ symbol-bootstrap verify`];
+    static examples = [`$ twix-bootstrap verify`];
 
     static flags = {
         help: CommandUtils.helpFlag,

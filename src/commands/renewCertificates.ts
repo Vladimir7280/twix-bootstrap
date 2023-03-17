@@ -29,7 +29,7 @@ This command does not change the node private key (yet). This change would requi
 It's recommended to backup the target folder before running this operation!
 `;
 
-    static examples = [`$ symbol-bootstrap renewCertificates`];
+    static examples = [`$ twix-bootstrap renewCertificates`];
 
     static flags = {
         help: CommandUtils.helpFlag,

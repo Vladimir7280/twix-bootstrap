@@ -30,7 +30,7 @@ When a new voting file is created, Bootstrap will advise running the \`link\` co
 
 `;
 
-    static examples = [`$ symbol-bootstrap updateVotingKeys`];
+    static examples = [`$ twix-bootstrap updateVotingKeys`];
 
     static flags = {
         help: CommandUtils.helpFlag,

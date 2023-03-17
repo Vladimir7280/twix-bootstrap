@@ -27,7 +27,7 @@ export class CommandUtils {
 
     public static targetFlag = flags.string({
         char: 't',
-        description: 'The target folder where the symbol-bootstrap network is generated',
+        description: 'The target folder where the twix-bootstrap network is generated',
         default: Constants.defaultTargetFolder,
     });
 

@@ -21,7 +21,7 @@ import { BootstrapService, CommandUtils, Constants } from '../service';
 export default class Report extends Command {
     static description = 'it generates reStructuredText (.rst) reports describing the configuration of each node.';
 
-    static examples = [`$ symbol-bootstrap report`];
+    static examples = [`$ twix-bootstrap report`];
 
     static flags = {
         help: CommandUtils.helpFlag,

@@ -22,8 +22,8 @@ export default class ModifyMultisig extends Command {
     static description = `Create or modify a multisig account`;
 
     static examples = [
-        `$ symbol-bootstrap modifyMultisig`,
-        `$ echo "$MY_ENV_VAR_PASSWORD" | symbol-bootstrap modifyMultisig --useKnownRestGateways`,
+        `$ twix-bootstrap modifyMultisig`,
+        `$ echo "$MY_ENV_VAR_PASSWORD" | twix-bootstrap modifyMultisig --useKnownRestGateways`,
     ];
 
     static flags = {

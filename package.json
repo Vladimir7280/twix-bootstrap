@@ -1,10 +1,10 @@
 {
-    "name": "symbol-bootstrap",
+    "name": "twix-bootstrap",
     "description": "Symbol tool that allows you creating, configuring and running Symbol's networks",
     "version": "1.1.4",
     "author": "Fernando Boucquez <fboucquez@gmail.com>",
     "bin": {
-        "symbol-bootstrap": "bin/run"
+        "twix-bootstrap": "bin/run"
     },
     "bugs": "https://github.com/fboucquez/symbol-bootstrap/issues",
     "dependencies": {
@@ -91,7 +91,7 @@
     "main": "lib/index.js",
     "oclif": {
         "commands": "./lib/commands",
-        "bin": "symbol-bootstrap",
+        "bin": "twix-bootstrap",
         "plugins": [
             "@oclif/plugin-autocomplete",
             "@oclif/plugin-help"
@@ -119,8 +119,8 @@
         "coveralls-report": "cat ./coverage/lcov.info | coveralls",
         "version": "echo $npm_package_version",
         "install-cli": "npm pack && npm i -g",
-        "clean-network": "symbol-bootstrap clean -t target/bootstrap-test",
-        "start-network": "symbol-bootstrap start -t target/bootstrap-test -u 'current'"
+        "clean-network": "twix-bootstrap clean -t target/bootstrap-test",
+        "start-network": "twix-bootstrap start -t target/bootstrap-test -u 'current'"
     },
     "types": "lib/index.d.ts"
 }

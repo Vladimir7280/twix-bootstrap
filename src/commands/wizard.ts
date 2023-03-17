@@ -72,7 +72,7 @@ export interface ProvidedAccounts {
 export default class WizardCommand extends Command {
     static description = 'An utility command that will help you configuring node!';
 
-    static examples = [`$ symbol-bootstrap wizard`];
+    static examples = [`$ twix-bootstrap wizard`];
 
     static flags = {
         help: CommandUtils.helpFlag,
@@ -141,7 +141,7 @@ export class Wizard {
         if (network == Preset.bootstrap) {
             this.logger.info('For a private network, just run: ');
             this.logger.info('');
-            this.logger.info(`$ symbol-bootstrap start -p ${preset} -a ${assembly}`);
+            this.logger.info(`$ twix-bootstrap start -p ${preset} -a ${assembly}`);
             return;
         }
 
@@ -273,12 +273,12 @@ export class Wizard {
         this.logger.info('');
         this.logger.info(`To decrypt the node's private key, run: `);
         this.logger.info('');
-        this.logger.info(`$ symbol-bootstrap decrypt --source ${customPresetFile} --destination plain-custom-preset.yml`);
+        this.logger.info(`$ twix-bootstrap decrypt --source ${customPresetFile} --destination plain-custom-preset.yml`);
         this.logger.info('');
         this.logger.info('Remember to delete the plain-custom-preset.yml file after used!!!');
 
         this.logger.info(
-            `You can edit this file to further customize it. Read more https://github.com/symbol/symbol-bootstrap/blob/main/docs/presetGuides.md`,
+            `You can edit this file to further customize it. Read more https://github.com/symbol/twix-bootstrap/blob/main/docs/presetGuides.md`,
         );
         this.logger.info('');
         this.logger.info(
@@ -286,12 +286,12 @@ export class Wizard {
         );
         this.logger.info('');
         const targetParam = target !== defaultParams.target ? `-t ${target}` : '';
-        this.logger.info(`$ symbol-bootstrap start -c ${customPresetFile} ${targetParam}`);
+        this.logger.info(`$ twix-bootstrap start -c ${customPresetFile} ${targetParam}`);
 
         this.logger.info('');
         this.logger.info(`Alternatively, to create a zip file that can be deployed in your node machine you can use the 'pack' command:`);
         this.logger.info('');
-        this.logger.info(`$ symbol-bootstrap pack -c ${customPresetFile} ${targetParam}`);
+        this.logger.info(`$ twix-bootstrap pack -c ${customPresetFile} ${targetParam}`);
         this.logger.info('');
         this.logger.info(
             `Once the target folder is created, Bootstrap will use the protected and encrypted addresses.yml, and preset.yml in inside the target folder.`,
@@ -305,7 +305,7 @@ export class Wizard {
         this.logger.info('');
         this.logger.info('To complete the registration, you need to link your keys (online):');
         this.logger.info('');
-        this.logger.info(`$ symbol-bootstrap link --useKnownRestGateways -c ${customPresetFile}`);
+        this.logger.info(`$ twix-bootstrap link --useKnownRestGateways -c ${customPresetFile}`);
         this.logger.info('');
     }
     public logAccount<T extends Account | PublicAccount | undefined>(account: T, keyName: KeyName, showPrivateKeys: boolean): T {

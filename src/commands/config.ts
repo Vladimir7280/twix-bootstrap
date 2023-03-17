@@ -22,12 +22,12 @@ export default class Config extends Command {
     static description = 'Command used to set up the configuration files and the nemesis block for the current network';
 
     static examples = [
-        `$ symbol-bootstrap config -p bootstrap`,
-        `$ symbol-bootstrap config -p testnet -a dual --password 1234`,
-        `$ symbol-bootstrap config -p mainnet -a peer -c custom-preset.yml`,
-        `$ symbol-bootstrap config -p mainnet -a my-custom-assembly.yml -c custom-preset.yml`,
-        `$ symbol-bootstrap config -p my-custom-network.yml -a dual -c custom-preset.yml`,
-        `$ echo "$MY_ENV_VAR_PASSWORD" | symbol-bootstrap config -p testnet -a dual`,
+        `$ twix-bootstrap config -p bootstrap`,
+        `$ twix-bootstrap config -p testnet -a dual --password 1234`,
+        `$ twix-bootstrap config -p mainnet -a peer -c custom-preset.yml`,
+        `$ twix-bootstrap config -p mainnet -a my-custom-assembly.yml -c custom-preset.yml`,
+        `$ twix-bootstrap config -p my-custom-network.yml -a dual -c custom-preset.yml`,
+        `$ echo "$MY_ENV_VAR_PASSWORD" | twix-bootstrap config -p testnet -a dual`,
     ];
 
     static flags = {

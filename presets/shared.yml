@@ -219,7 +219,7 @@ connectionPoolSize: 10
 maxSubscriptions: 300
 restExtensions: 'accountLink, aggregate, lockHash, lockSecret, mosaic, metadata, multisig, namespace, receipts, restrictions, transfer'
 restUncirculatingAccountPublicKeys: ''
-restDeploymentTool: symbol-bootstrap
+restDeploymentTool: twix-bootstrap
 restProtocol: HTTP
 restSSLPath: '/symbol-workdir'
 restSSLKeyFileName: 'restSSL.key'

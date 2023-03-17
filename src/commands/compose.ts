@@ -21,7 +21,7 @@ import { BootstrapService, CommandUtils, ComposeService, Constants } from '../se
 export default class Compose extends Command {
     static description = 'It generates the `docker-compose.yml` file from the configured network.';
 
-    static examples = [`$ symbol-bootstrap compose`];
+    static examples = [`$ twix-bootstrap compose`];
 
     static flags = {
         help: CommandUtils.helpFlag,

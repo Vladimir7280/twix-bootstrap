@@ -76,7 +76,7 @@ export class VotingService {
         // First file is created automatically on start, second file may or may not.
         if (!update && currentVotingFiles.length > 0) {
             logger.warn('');
-            logger.warn(`Voting key files are close to EXPIRATION or have EXPIRED!. Run the 'symbol-bootstrap updateVotingKeys' command!`);
+            logger.warn(`Voting key files are close to EXPIRATION or have EXPIRED!. Run the 'twix-bootstrap updateVotingKeys' command!`);
             logger.warn('');
             return false;
         }
@@ -115,7 +115,7 @@ export class VotingService {
             logger.warn(
                 `Remember to send a Voting Key Link transaction from main ${nodeAccount.main.address} using the Voting Public Key: ${publicKey} with startEpoch: ${votingKeyStartEpoch} and endEpoch: ${votingKeyEndEpoch}`,
             );
-            logger.warn(`For linking, you can use 'symbol-bootstrap link' command, the symbol cli, or the symbol desktop wallet.`);
+            logger.warn(`For linking, you can use 'twix-bootstrap link' command, the symbol cli, or the symbol desktop wallet.`);
             logger.warn('');
         }
         nodeAccount.voting = votingUtils.loadVotingFiles(votingKeysFolder);

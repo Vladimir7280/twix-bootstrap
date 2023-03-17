@@ -27,17 +27,17 @@ The main use case of this command is encrypting custom presets files. If your cu
 
     static examples = [
         `
-$ symbol-bootstrap encrypt --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
+$ twix-bootstrap encrypt --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
 > password prompt
-$ symbol-bootstrap start --preset testnet --assembly dual --customPreset encrypted-custom-preset.yml
+$ twix-bootstrap start --preset testnet --assembly dual --customPreset encrypted-custom-preset.yml
 > password prompt (enter the same password)
         `,
         `
-$ symbol-bootstrap encrypt --password 1234 --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
-$ symbol-bootstrap start --password 1234 --preset testnet --assembly dual --customPreset encrypted-custom-preset.yml
+$ twix-bootstrap encrypt --password 1234 --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
+$ twix-bootstrap start --password 1234 --preset testnet --assembly dual --customPreset encrypted-custom-preset.yml
 `,
         `
- $ echo "$MY_ENV_VAR_PASSWORD" | symbol-bootstrap encrypt --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
+ $ echo "$MY_ENV_VAR_PASSWORD" | twix-bootstrap encrypt --source plain-custom-preset.yml --destination encrypted-custom-preset.yml
  `,
     ];
 

@@ -38,11 +38,11 @@ export default class Pack extends Command {
     static description = 'It configures and packages your node into a zip file that can be uploaded to the final node machine.';
 
     static examples = [
-        `$ symbol-bootstrap pack`,
-        `$ symbol-bootstrap pack -c custom-preset.yml`,
-        `$ symbol-bootstrap pack -p testnet -a dual -c custom-preset.yml`,
-        `$ symbol-bootstrap pack -p mainnet -a dual --password 1234 -c custom-preset.yml`,
-        `$ echo "$MY_ENV_VAR_PASSWORD" | symbol-bootstrap pack -c custom-preset.yml`,
+        `$ twix-bootstrap pack`,
+        `$ twix-bootstrap pack -c custom-preset.yml`,
+        `$ twix-bootstrap pack -p testnet -a dual -c custom-preset.yml`,
+        `$ twix-bootstrap pack -p mainnet -a dual --password 1234 -c custom-preset.yml`,
+        `$ echo "$MY_ENV_VAR_PASSWORD" | twix-bootstrap pack -c custom-preset.yml`,
     ];
 
     static flags = {
@@ -127,6 +127,6 @@ export default class Pack extends Command {
         await new FileSystemService(logger).deleteFile(noPrivateKeyTempFile);
         logger.info('');
         logger.info(`Zip file ${targetZip} has been created. You can unzip it in your node's machine and run:`);
-        logger.info(`$ symbol-bootstrap start`);
+        logger.info(`$ twix-bootstrap start`);
     }
 }
