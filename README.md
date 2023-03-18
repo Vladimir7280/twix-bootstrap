@@ -1,17 +1,17 @@
-# symbol-bootstrap
+# twix-bootstrap
 
 Symbol CLI tool that allows you creating, configuring and running [Symbol](https://docs.symbolplatform.com/) blockchain complete networks or nodes to be sync with existing networks.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/symbol-bootstrap.svg)](https://npmjs.org/package/symbol-bootstrap)
-[![Downloads/week](https://img.shields.io/npm/dw/symbol-bootstrap.svg)](https://npmjs.org/package/symbol-bootstrap)
-[![License](https://img.shields.io/npm/l/symbol-bootstrap.svg)](https://github.com/fboucquez/symbol-bootstrap/blob/master/package.json)
-[![Build](https://github.com/fboucquez/symbol-bootstrap/actions/workflows/build.yml/badge.svg)](https://github.com/fboucquez/symbol-bootstrap/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/fboucquez/symbol-bootstrap/badge.svg?branch=dev)](https://coveralls.io/github/fboucquez/symbol-bootstrap?branch=dev)
-[![Api Doc](https://img.shields.io/badge/api-doc-blue.svg)](https://fboucquez.github.io/symbol-bootstrap/)
+[![Version](https://img.shields.io/npm/v/symbol-bootstrap.svg)](https://npmjs.org/package/twix-bootstrap)
+[![Downloads/week](https://img.shields.io/npm/dw/symbol-bootstrap.svg)](https://npmjs.org/package/twix-bootstrap)
+[![License](https://img.shields.io/npm/l/symbol-bootstrap.svg)](https://github.com/Vladimir7280/twix-bootstrap/blob/dev/package.json)
+[![Build](https://github.com/fboucquez/symbol-bootstrap/actions/workflows/build.yml/badge.svg)](https://github.com/Vladimir7280/twix-bootstrap/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/fboucquez/symbol-bootstrap/badge.svg?branch=dev)](https://coveralls.io/github/Vladimir7280/twix-bootstrap?branch=dev)
+[![Api Doc](https://img.shields.io/badge/api-doc-blue.svg)](https://vladimir7280.github.io/twix-bootstrap/)
 
 <!-- toc -->
-* [symbol-bootstrap](#symbol-bootstrap)
+* [twix-bootstrap](#twix-bootstrap)
 * [Key features:](#key-features)
 * [Concepts](#concepts)
 * [Requirements](#requirements)
@@ -130,14 +130,14 @@ Once in the working dir:
 
 <!-- usage -->
 ```sh-session
-$ npm install -g symbol-bootstrap
-$ symbol-bootstrap COMMAND
+$ npm install -g twix-bootstrap
+$ twix-bootstrap COMMAND
 running command...
-$ symbol-bootstrap (-v|--version|version)
-symbol-bootstrap/1.1.4 linux-x64 node-v12.22.1
-$ symbol-bootstrap --help [COMMAND]
+$ twix-bootstrap (-v|--version|version)
+twix-bootstrap/1.1.4 linux-x64 node-v14.19.1
+$ twix-bootstrap --help [COMMAND]
 USAGE
-  $ symbol-bootstrap COMMAND
+  $ twix-bootstrap COMMAND
 ...
 ```
 <!-- usagestop -->
@@ -145,21 +145,21 @@ USAGE
 Validate your environment by running:
 
 ```shell
-symbol-bootstrap verify
+twix-bootstrap verify
 ```
 
 The general usage would be:
 
 ```shell
-symbol-bootstrap config -p testnet -a dual
-symbol-bootstrap compose
-symbol-bootstrap run
+twix-bootstrap config -p testnet -a dual
+twix-bootstrap compose
+twix-bootstrap run
 ```
 
 You can aggregate all these commands with this one liner:
 
 ```shell
-symbol-bootstrap start -p testnet -a dual
+twix-bootstrap start -p testnet -a dual
 ```
 
 If you need to start fresh, you many need to sudo remove the target folder (docker volumes dirs may be created using sudo). Example:
@@ -172,22 +172,22 @@ sudo rm -rf ./target
 
 Network presets and assemblies can be combined to generate different types of nodes. Some examples:
 
--   `$ symbol-bootstrap start -p mainnet -a dual -c customPreset.yml`
--   `$ symbol-bootstrap start -p testnet -a peer -c customPreset.yml`
--   `$ symbol-bootstrap start -p testnet -a demo -c customPreset.yml`
--   `$ symbol-bootstrap start -p bootstrap -a multinode -c customPreset.yml`
--   `$ symbol-bootstrap start -p bootstrap -a demo -c customPreset.yml`
--   `$ symbol-bootstrap start -p bootstrap -a dual -c customPreset.yml`
+-   `$ twix-bootstrap start -p mainnet -a dual -c customPreset.yml`
+-   `$ twix-bootstrap start -p testnet -a peer -c customPreset.yml`
+-   `$ twix-bootstrap start -p testnet -a demo -c customPreset.yml`
+-   `$ twix-bootstrap start -p bootstrap -a multinode -c customPreset.yml`
+-   `$ twix-bootstrap start -p bootstrap -a demo -c customPreset.yml`
+-   `$ twix-bootstrap start -p bootstrap -a dual -c customPreset.yml`
 
 Although some combinations can be done, they may not be really useful. Examples that are NOT useful:
 
--   `$ symbol-bootstrap start -p mainnet -a multinode`
--   `$ symbol-bootstrap start -p testnet -a multinode`
+-   `$ twix-bootstrap start -p mainnet -a multinode`
+-   `$ twix-bootstrap start -p testnet -a multinode`
 
 A custom network preset file can also be provided. This is useful when you have your own custom Symbol network, and you want other nodes to join.
 For this case, you provide your own `networkPreset.yml` and nemesis feed folder. The node admin can then run:
 
-- `$ symbol-bootstrap start -p customNetworkPreset.yml -a dual -c customNodePreset.yml`
+- `$ twix-bootstrap start -p customNetworkPreset.yml -a dual -c customNodePreset.yml`
 
 The `demo` assemblies starts a local Explorer http://localhost:90 and Faucet http://localhost:100.
 
@@ -196,7 +196,7 @@ The `demo` assemblies starts a local Explorer http://localhost:90 and Faucet htt
 If this is your first time creating a node, it's recommended to use the Wizard. Just follow the instructions:
 
 ```shell
-symbol-bootstrap wizard
+twix-bootstrap wizard
 ```
 
 # Development
@@ -207,7 +207,7 @@ If you want to contribute to this tool, clone this repo and run:
 npm install -g
 ```
 
-Then, `symbol-bootstrap` runs from the source code. You can now try your features after changing the code.
+Then, `twix-bootstrap` runs from the source code. You can now try your features after changing the code.
 
 Pull Requests are appreciated! Please follow the contributing [guidelines](CONTRIBUTING.md).
 
@@ -238,25 +238,25 @@ If you don't like it, let me know by creating issues on GitHub. Pull Requests ar
 <!-- commands -->
 # Command Topics
 
-* [`symbol-bootstrap autocomplete`](docs/autocomplete.md) - display autocomplete installation instructions
-* [`symbol-bootstrap clean`](docs/clean.md) - It removes the target folder deleting the generated configuration and data
-* [`symbol-bootstrap compose`](docs/compose.md) - It generates the `docker-compose.yml` file from the configured network.
-* [`symbol-bootstrap config`](docs/config.md) - Command used to set up the configuration files and the nemesis block for the current network
-* [`symbol-bootstrap decrypt`](docs/decrypt.md) - It decrypts a yml file using the provided password. The source file can be a custom preset file, a preset.yml file or an addresses.yml.
-* [`symbol-bootstrap encrypt`](docs/encrypt.md) - It encrypts a yml file using the provided password. The source files would be a custom preset file, a preset.yml file or an addresses.yml.
-* [`symbol-bootstrap healthCheck`](docs/healthCheck.md) - It checks if the services created with docker compose are up and running.
-* [`symbol-bootstrap help`](docs/help.md) - display help for symbol-bootstrap
-* [`symbol-bootstrap link`](docs/link.md) - It announces VRF and Voting Link transactions to the network for each node with 'Peer' or 'Voting' roles. This command finalizes the node registration to an existing network.
-* [`symbol-bootstrap modifyMultisig`](docs/modifyMultisig.md) - Create or modify a multisig account
-* [`symbol-bootstrap pack`](docs/pack.md) - It configures and packages your node into a zip file that can be uploaded to the final node machine.
-* [`symbol-bootstrap renewCertificates`](docs/renewCertificates.md) - It renews the SSL certificates of the node regenerating the node.csr.pem files but reusing the current private keys.
-* [`symbol-bootstrap report`](docs/report.md) - it generates reStructuredText (.rst) reports describing the configuration of each node.
-* [`symbol-bootstrap resetData`](docs/resetData.md) - It removes the data keeping the generated configuration, certificates, keys and block 1.
-* [`symbol-bootstrap run`](docs/run.md) - It boots the network via docker using the generated `docker-compose.yml` file and configuration. The config and compose methods/commands need to be called before this method. This is just a wrapper for the `docker-compose up` bash call.
-* [`symbol-bootstrap start`](docs/start.md) - Single command that aggregates config, compose and run in one line!
-* [`symbol-bootstrap stop`](docs/stop.md) - It stops the docker-compose network if running (symbol-bootstrap started with --detached). This is just a wrapper for the `docker-compose down` bash call.
-* [`symbol-bootstrap updateVotingKeys`](docs/updateVotingKeys.md) - It updates the voting files containing the voting keys when required.
-* [`symbol-bootstrap verify`](docs/verify.md) - It tests the installed software in the current computer reporting if there is any missing dependency, invalid version, or software related issue.
-* [`symbol-bootstrap wizard`](docs/wizard.md) - An utility command that will help you configuring node!
+* [`twix-bootstrap autocomplete`](docs/autocomplete.md) - display autocomplete installation instructions
+* [`twix-bootstrap clean`](docs/clean.md) - It removes the target folder deleting the generated configuration and data
+* [`twix-bootstrap compose`](docs/compose.md) - It generates the `docker-compose.yml` file from the configured network.
+* [`twix-bootstrap config`](docs/config.md) - Command used to set up the configuration files and the nemesis block for the current network
+* [`twix-bootstrap decrypt`](docs/decrypt.md) - It decrypts a yml file using the provided password. The source file can be a custom preset file, a preset.yml file or an addresses.yml.
+* [`twix-bootstrap encrypt`](docs/encrypt.md) - It encrypts a yml file using the provided password. The source files would be a custom preset file, a preset.yml file or an addresses.yml.
+* [`twix-bootstrap healthCheck`](docs/healthCheck.md) - It checks if the services created with docker compose are up and running.
+* [`twix-bootstrap help`](docs/help.md) - display help for twix-bootstrap
+* [`twix-bootstrap link`](docs/link.md) - It announces VRF and Voting Link transactions to the network for each node with 'Peer' or 'Voting' roles. This command finalizes the node registration to an existing network.
+* [`twix-bootstrap modifyMultisig`](docs/modifyMultisig.md) - Create or modify a multisig account
+* [`twix-bootstrap pack`](docs/pack.md) - It configures and packages your node into a zip file that can be uploaded to the final node machine.
+* [`twix-bootstrap renewCertificates`](docs/renewCertificates.md) - It renews the SSL certificates of the node regenerating the node.csr.pem files but reusing the current private keys.
+* [`twix-bootstrap report`](docs/report.md) - it generates reStructuredText (.rst) reports describing the configuration of each node.
+* [`twix-bootstrap resetData`](docs/resetData.md) - It removes the data keeping the generated configuration, certificates, keys and block 1.
+* [`twix-bootstrap run`](docs/run.md) - It boots the network via docker using the generated `docker-compose.yml` file and configuration. The config and compose methods/commands need to be called before this method. This is just a wrapper for the `docker-compose up` bash call.
+* [`twix-bootstrap start`](docs/start.md) - Single command that aggregates config, compose and run in one line!
+* [`twix-bootstrap stop`](docs/stop.md) - It stops the docker-compose network if running (twix-bootstrap started with --detached). This is just a wrapper for the `docker-compose down` bash call.
+* [`twix-bootstrap updateVotingKeys`](docs/updateVotingKeys.md) - It updates the voting files containing the voting keys when required.
+* [`twix-bootstrap verify`](docs/verify.md) - It tests the installed software in the current computer reporting if there is any missing dependency, invalid version, or software related issue.
+* [`twix-bootstrap wizard`](docs/wizard.md) - An utility command that will help you configuring node!
 
 <!-- commandsstop -->
