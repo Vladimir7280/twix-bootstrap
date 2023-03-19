@@ -7,9 +7,9 @@ initialCurrencyAtomicUnits: 108000000000000
 maxMosaicAtomicUnits: 1000000000000000
 totalChainImportance: 108000000000000
 minHarvesterBalance: 100000000
-maxHarvesterBalance: 30000000000000
+maxHarvesterBalance: 10000000000000
 minVoterBalance: 1000000000000
-blockGenerationTargetTime: 15s
+blockGenerationTargetTime: 30s
 blockTimeSmoothingFactor: 3000
 importanceGrouping: 180
 importanceActivityPercentage: 5
@@ -26,20 +26,20 @@ reservedRootNamespaceNames: 'twix, twins, fix, symbol, symbl, xym, xem, nem, use
 defaultDynamicFeeMultiplier: 100
 minFeeMultiplier: 100
 maxTimeBehindPullTransactionsStart: 5m
-epochAdjustment: 1573430400s
+epochAdjustment: 1679184000s
 nodeEqualityStrategy: host
 maxVotingKeyLifetime: 720
 minVotingKeyLifetime: 28
-mosaicRentalFee: 1000
+mosaicRentalFee: 100000
 votingSetGrouping: 720
 maxVotingKeysPerAccount: 3
 autoUpdateVotingKeys: false
 maxTransactionsPerAggregate: 100
 maxCosignaturesPerAggregate: 25
-harvestBeneficiaryPercentage: 15
+harvestBeneficiaryPercentage: 10
 harvestNetworkPercentage: 10
-rootNamespaceRentalFeePerBlock: 1
-childNamespaceRentalFee: 1000
+rootNamespaceRentalFeePerBlock: 10000
+childNamespaceRentalFee: 100000
 enableStrictCosignatureCheck: false
 enableBondedAggregateSupport: true
 maxBondedTransactionLifetime: 48h
@@ -56,7 +56,7 @@ maxProofSize: 4096
 maxValueSize: 4096
 maxMosaicsPerAccount: 1000
 maxMosaicDuration: 730d
-maxMosaicDivisibility: 8
+maxMosaicDivisibility: 4
 maxMultisigDepth: 3
 maxCosignatoriesPerAccount: 25
 maxCosignedAccountsPerAccount: 25
@@ -64,11 +64,10 @@ maxNameSize: 64
 maxChildNamespaces: 256
 maxNamespaceDepth: 3
 batchVerificationRandomSource:
-symbolServerImage: newcapital/symbol-server-nc:gcc-1.0.0.3
-#symbolplatform/symbol-server:gcc-10-1.0.3.1
-symbolRestImage: symbolplatform/symbol-rest:2.4.0
-symbolExplorerImage: symbolplatform/symbol-explorer:1.1.1-alpha-202110290945
-symbolFaucetImage: symbolplatform/symbol-faucet:1.0.1-alpha-202110131930
+symbolServerImage: vladimir7280/symbol-server-private:twix-server-1.0.3.5
+symbolRestImage: vladimir7280/symbol-server-private:twix-rest-api.2.4.0.3g
+symbolExplorerImage: 
+symbolFaucetImage: 
 mongoImage: mongo:4.4.3-bionic
 httpsPortalImage: steveltn/https-portal:1.19
 mongoComposeRunParam: --wiredTigerCacheSizeGB 2
@@ -217,7 +216,7 @@ maxConnectionAttempts: 15
 baseRetryDelay: 750
 connectionPoolSize: 10
 maxSubscriptions: 300
-restExtensions: 'accountLink, aggregate, lockHash, lockSecret, mosaic, metadata, multisig, namespace, receipts, restrictions, transfer'
+restExtensions: 'accountLink, aggregate, lockHash, lockSecret, mosaic, metadata, multisig, namespace, receipts, restrictions, transfer, price'
 restUncirculatingAccountPublicKeys: ''
 restDeploymentTool: twix-bootstrap
 restProtocol: HTTP
@@ -234,9 +233,9 @@ corruptAggregateTransactionHashes: []
 #price.plugin ->
 initialSupply: 108000000000000
 pricePublisherPublicKey: C9FDFE8C0A423BC86C75505F21918191B9BB6199FBA0FA6767B13FC93EC7E13F
-feeRecalculationFrequency: 5
-multiplierRecalculationFrequency: 1
-pricePeriodBlocks: 1
-entryLifetime: 500
+feeRecalculationFrequency: 20160
+multiplierRecalculationFrequency: 20160
+pricePeriodBlocks: 86400
+entryLifetime: 100000
 generationCeiling: 1000000000000000
 #<- price.plugin

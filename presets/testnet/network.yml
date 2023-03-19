@@ -2,16 +2,16 @@ networkDescription: Twix Testnet
 baseNamespace: twix
 batchVerificationRandomSource: /dev/urandom
 currencyMosaicId: 553961D2F0B6A6A7
-harvestBeneficiaryPercentage: 15
+harvestBeneficiaryPercentage: 10
 harvestingMosaicId: 553961D2F0B6A6A7
-epochAdjustment: 1573430400s
+epochAdjustment: 1679184000s
 enableRevoteOnBoot: false
 timeSynchronizationMinImportance: 1000000000000
-maxHarvesterBalance: 30000000000000
+maxHarvesterBalance: 10000000000000
 maxMosaicAtomicUnits: 1000000000000000
 minHarvesterBalance: 100000000
 minVoterBalance: 1000000000000
-nemesisGenerationHashSeed: A4331E1C2E22455E112A066B0647D71CE0F7B15CF89CB131D7B9208EF4E1DA86
+nemesisGenerationHashSeed: 2B80BEC5FBA967140AF13F08F6059AF6DAA8C36D6A37DE2B17CA226800F5A9F4
 harvestNetworkFeeSinkAddress: TCYYX55LWESYTMYM7C4XDV2XYFHAZFEQQRFWNAQ
 namespaceRentalFeeSinkAddress: TAQELAYU2ZLLMQMIOXVTZKV6PSOD5ABNVX5LJXA
 mosaicRentalFeeSinkAddress: TBEYSKXPHKGTTG3EIJBPOQQAF7SMWG3WWSEECYQ
@@ -33,12 +33,12 @@ maxSecretLockDuration: 365d
 maxNamespaceDuration: 730d
 minNamespaceDuration: 60d
 namespaceGracePeriodDuration: 60d
-blockGenerationTargetTime: 15s
+blockGenerationTargetTime: 30s
 defaultDynamicFeeMultiplier: 100
-rootNamespaceRentalFeePerBlock: 1
-childNamespaceRentalFee: 10
+rootNamespaceRentalFeePerBlock: 10000
+childNamespaceRentalFee: 100000
 totalVotingBalanceCalculationFix: 0
-mosaicRentalFee: 10
+mosaicRentalFee: 100000
 throttlingBurst: 80
 throttlingRate: 60
 fileDatabaseBatchSize: 100
@@ -68,31 +68,49 @@ inflation:
     starting-at-height-10000: 0
 treasuryReissuance: 0
 knownRestGateways:
-    - http://95.217.7.18:3000
-    - http://95.217.56.171:3000
-    - http://159.223.3.85:3000
+    - http://138.2.140.179:3000
+    - http://141.147.6.157:3000
+    - http://138.3.254.60:3000
+    - http://138.2.153.166:3000
+    - http://144.24.160.28:3000
 knownPeers:
     -
         publicKey: C5945CC7FBE7D210A43FAE77B3281582C0D051BB350BBB1092ED95D541A21F3E
         endpoint:
-            host: 95.217.7.18
-            port: 7900
-        metadata:
-            name: seed0.twix.live
-            roles: Api,Peer,Voting
-    -
-        publicKey: 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
-        endpoint:
-            host: 95.217.56.171
+            host: 138.2.140.179
             port: 7900
         metadata:
             name: seed1.twix.live
             roles: Api,Peer,Voting
     -
-        publicKey: 0FF822782DEA8A32397C80DE7E549DFB371537CA45148649842B5699471BF1E7
+        publicKey: 32080EF5B72BE33BA41479D3C4D43AE65B00CFC2A23A022F3B5DFE15057FE554
         endpoint:
-            host: 159.223.3.85
+            host: 141.147.6.157
             port: 7900
         metadata:
             name: seed2.twix.live
+            roles: Api,Peer,Voting
+    -
+        publicKey: 0FF822782DEA8A32397C80DE7E549DFB371537CA45148649842B5699471BF1E7
+        endpoint:
+            host: 138.3.254.60
+            port: 7900
+        metadata:
+            name: seed3.twix.live
+            roles: Api,Peer,Voting
+    -
+        publicKey: FAF776DC8D7E5B7FF662F57FACEC2F02DD4E0D24F859F3D92242ED4C2B1E0489
+        endpoint:
+            host: 138.2.153.166
+            port: 7900
+        metadata:
+            name: seed4.twix.live
+            roles: Api,Peer,Voting
+    -
+        publicKey: 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
+        endpoint:
+            host: 144.24.160.28
+            port: 7900
+        metadata:
+            name: seed5.twix.live
             roles: Api,Peer,Voting
