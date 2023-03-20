@@ -24,13 +24,13 @@ maxMosaicRestrictionValues: 20
 maxMessageSize: 4096
 reservedRootNamespaceNames: 'twix, twins, fix, symbol, symbl, xym, xem, nem, user, account, org, com, biz, net, edu, mil, gov, info'
 defaultDynamicFeeMultiplier: 100
-minFeeMultiplier: 100
+minFeeMultiplier: 1
 maxTimeBehindPullTransactionsStart: 5m
 epochAdjustment: 1679184000s
 nodeEqualityStrategy: host
 maxVotingKeyLifetime: 720
 minVotingKeyLifetime: 28
-mosaicRentalFee: 100000
+mosaicRentalFee: 1000
 votingSetGrouping: 720
 maxVotingKeysPerAccount: 3
 autoUpdateVotingKeys: false
@@ -38,8 +38,8 @@ maxTransactionsPerAggregate: 100
 maxCosignaturesPerAggregate: 25
 harvestBeneficiaryPercentage: 10
 harvestNetworkPercentage: 10
-rootNamespaceRentalFeePerBlock: 10000
-childNamespaceRentalFee: 100000
+rootNamespaceRentalFeePerBlock: 100
+childNamespaceRentalFee: 1000
 enableStrictCosignatureCheck: false
 enableBondedAggregateSupport: true
 maxBondedTransactionLifetime: 48h
