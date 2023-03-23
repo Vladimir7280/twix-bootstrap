@@ -71,16 +71,16 @@ inflation:
     starting-at-height-10000: 0
 treasuryReissuance: 0
 knownRestGateways:
-    - http://138.2.140.179:3000
-    - http://141.147.6.157:3000
-    - http://138.3.254.60:3000
-    - http://138.2.153.166:3000
-    - http://144.24.160.28:3000
+    - https://seed1.twix.live:3001
+    - https://seed2.twix.live:3001
+    - https://seed3.twix.live:3001
+    - https://seed4.twix.live:3001
+    - https://seed5.twix.live:3001
 knownPeers:
     -
         publicKey: C5945CC7FBE7D210A43FAE77B3281582C0D051BB350BBB1092ED95D541A21F3E
         endpoint:
-            host: 138.2.140.179
+            host: seed1.twix.live
             port: 7900
         metadata:
             name: seed1.twix.live
@@ -88,7 +88,7 @@ knownPeers:
     -
         publicKey: 32080EF5B72BE33BA41479D3C4D43AE65B00CFC2A23A022F3B5DFE15057FE554
         endpoint:
-            host: 141.147.6.157
+            host: seed2.twix.live
             port: 7900
         metadata:
             name: seed2.twix.live
@@ -96,7 +96,7 @@ knownPeers:
     -
         publicKey: 0FF822782DEA8A32397C80DE7E549DFB371537CA45148649842B5699471BF1E7
         endpoint:
-            host: 138.3.254.60
+            host: seed3.twix.live
             port: 7900
         metadata:
             name: seed3.twix.live
@@ -104,7 +104,7 @@ knownPeers:
     -
         publicKey: FAF776DC8D7E5B7FF662F57FACEC2F02DD4E0D24F859F3D92242ED4C2B1E0489
         endpoint:
-            host: 138.2.153.166
+            host: seed4.twix.live
             port: 7900
         metadata:
             name: seed4.twix.live
@@ -112,7 +112,7 @@ knownPeers:
     -
         publicKey: 5CF6E217FBAFF55C38F385ED8CE187CDCD05AB92FBED6D95E34483FE62D940B0
         endpoint:
-            host: 144.24.160.28
+            host: seed5.twix.live
             port: 7900
         metadata:
             name: seed5.twix.live
