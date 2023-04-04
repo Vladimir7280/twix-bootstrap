@@ -30,6 +30,7 @@ import {
     ConfigService,
     Constants,
     KeyName,
+    Password,
     Preset,
     RuntimeService,
     YamlUtils,
@@ -39,8 +40,9 @@ export const assembliesDescriptions: Record<Assembly, string> = {
     [Assembly.dual]: 'Dual Node',
     [Assembly.peer]: 'Peer Node',
     [Assembly.api]: 'Api Node',
-    [Assembly.demo]: 'Demo Node',
+    [Assembly.demo]: 'Demo Node. A dual node that includes a Faucet and Explorer.',
     [Assembly.multinode]: 'Multinode Node. A docker compose that includes one api, one rest and two peers.',
+    [Assembly.services]: 'Services. A docker compose with just Faucet and Explorer.',
 };
 
 export enum HttpsOption {
@@ -112,7 +114,7 @@ export class Wizard {
         noPassword: boolean;
         skipPull?: boolean;
         target: string;
-        password: string | undefined;
+        password: Password;
         network: Network | undefined;
         customPreset: string;
         ready?: boolean;
@@ -552,7 +554,7 @@ export class Wizard {
         );
     }
 
-    public async resolveFileContent(encoding: string, message: string, notFoundMessage: string): Promise<string> {
+    public async resolveFileContent(encoding: 'base64', message: string, notFoundMessage: string): Promise<string> {
         const { value } = await prompt([
             {
                 name: 'value',

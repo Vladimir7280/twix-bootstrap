@@ -2,8 +2,8 @@ import { createWriteStream, existsSync, lstatSync, promises as fsPromises, readd
 import { get } from 'https';
 import { basename, dirname, join } from 'path';
 import { Logger } from '../logger';
-import { KnownError } from './BootstrapUtils';
 import { Constants } from './Constants';
+import { KnownError } from './KnownError';
 import { Utils } from './Utils';
 
 /**
@@ -39,8 +39,8 @@ export class FileSystemService {
         }
     }
 
-    public mkdir(path: string): Promise<void> {
-        return fsPromises.mkdir(path, { recursive: true });
+    public async mkdir(path: string): Promise<void> {
+        await fsPromises.mkdir(path, { recursive: true });
     }
 
     public async mkdirParentFolder(fileName: string): Promise<void> {

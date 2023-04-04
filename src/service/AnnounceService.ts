@@ -15,12 +15,12 @@
  */
 import { flags } from '@oclif/command';
 import { prompt } from 'inquirer';
+import { firstValueFrom } from 'rxjs';
 import {
     Account,
     AccountInfo,
     Address,
     AggregateTransaction,
-    Convert,
     Currency,
     Deadline,
     IListener,
@@ -46,6 +46,7 @@ import { AccountResolver } from './AccountResolver';
 import { CommandUtils } from './CommandUtils';
 import { KeyName } from './ConfigService';
 import { TransactionUtils } from './TransactionUtils';
+import { Utils } from './Utils';
 
 export interface TransactionFactoryParams {
     presetData: ConfigPreset;
@@ -123,19 +124,19 @@ export class AnnounceService {
             presetData,
             useKnownRestGateways ? undefined : url,
         );
-        const networkType = await repositoryFactory.getNetworkType().toPromise();
+        const networkType = await firstValueFrom(repositoryFactory.getNetworkType());
         const transactionRepository = repositoryFactory.createTransactionRepository();
         const transactionService = new TransactionService(transactionRepository, repositoryFactory.createReceiptRepository());
-        const epochAdjustment = await repositoryFactory.getEpochAdjustment().toPromise();
+        const epochAdjustment = await firstValueFrom(repositoryFactory.getEpochAdjustment());
         const listener = repositoryFactory.createListener();
         await listener.open();
         const faucetUrl = presetData.faucetUrl;
-        const currency = (await repositoryFactory.getCurrencies().toPromise()).currency;
+        const currency = (await firstValueFrom(repositoryFactory.getCurrencies())).currency;
         const currencyMosaicId = currency.mosaicId;
         const deadline = Deadline.create(epochAdjustment);
-        const minFeeMultiplier = (await repositoryFactory.createNetworkRepository().getTransactionFees().toPromise()).minFeeMultiplier;
-        const latestFinalizedBlockEpoch = (await repositoryFactory.createChainRepository().getChainInfo().toPromise()).latestFinalizedBlock
-            .finalizationEpoch;
+        const minFeeMultiplier = (await firstValueFrom(repositoryFactory.createNetworkRepository().getTransactionFees())).minFeeMultiplier;
+        const latestFinalizedBlockEpoch = (await firstValueFrom(repositoryFactory.createChainRepository().getChainInfo()))
+            .latestFinalizedBlock.finalizationEpoch;
         if (!currencyMosaicId) {
             throw new Error('Mosaic Id must not be null!');
         }
@@ -145,7 +146,7 @@ export class AnnounceService {
             this.logger.info(`Node's minFeeMultiplier is ${minFeeMultiplier}`);
         }
 
-        const generationHash = await repositoryFactory.getGenerationHash().toPromise();
+        const generationHash = await firstValueFrom(repositoryFactory.getGenerationHash());
         if (generationHash?.toUpperCase() !== presetData.nemesisGenerationHashSeed?.toUpperCase()) {
             throw new Error(
                 `You are connecting to the wrong network. Expected generation hash is ${presetData.nemesisGenerationHashSeed} but got ${generationHash}`,
@@ -430,7 +431,7 @@ export class AnnounceService {
                     name: 'privateKey',
                     message: `Enter the 64 HEX private key of one of the addresses ${expectedDescription}. Already entered ${providedAccounts.length} out of ${minApproval} required cosigners.`,
                     type: 'password',
-                    validate: AnnounceService.isValidPrivateKey,
+                    validate: CommandUtils.isValidPrivateKey,
                 },
             ]);
             const privateKey = responses.privateKey;
@@ -474,13 +475,9 @@ export class AnnounceService {
         }
     }
 
-    public static isValidPrivateKey(input: string): boolean | string {
-        return Convert.isHexString(input, 64) ? true : 'Invalid private key. It must be has 64 hex characters!';
-    }
-
     private async getAccountInfo(repositoryFactory: RepositoryFactory, mainAccountAddress: Address): Promise<AccountInfo | undefined> {
         try {
-            return await repositoryFactory.createAccountRepository().getAccountInfo(mainAccountAddress).toPromise();
+            return await firstValueFrom(repositoryFactory.createAccountRepository().getAccountInfo(mainAccountAddress));
         } catch (e) {
             return undefined;
         }
@@ -494,7 +491,7 @@ export class AnnounceService {
         const accountRepository = repositoryFactory.createAccountRepository();
         for (const cosigner of cosigners) {
             try {
-                const accountInfo = await accountRepository.getAccountInfo(cosigner.address).toPromise();
+                const accountInfo = await firstValueFrom(accountRepository.getAccountInfo(cosigner.address));
                 if (!this.isAccountEmpty(accountInfo, currencyMosaicId)) {
                     return cosigner;
                 }
@@ -558,7 +555,7 @@ export class AnnounceService {
 
         try {
             this.logger.info(`Announcing ${this.getTransactionDescription(lockFundsTransaction, signedLockFundsTransaction, currency)}`);
-            await transactionService.announce(signedLockFundsTransaction, listener).toPromise();
+            await firstValueFrom(transactionService.announce(signedLockFundsTransaction, listener));
             this.logger.info(
                 `${this.getTransactionDescription(lockFundsTransaction, signedLockFundsTransaction, currency)} has been confirmed`,
             );
@@ -566,7 +563,7 @@ export class AnnounceService {
             this.logger.info(
                 `Announcing Bonded ${this.getTransactionDescription(aggregateTransaction, signedAggregateTransaction, currency)}`,
             );
-            await transactionService.announceAggregateBonded(signedAggregateTransaction, listener).toPromise();
+            await firstValueFrom(transactionService.announceAggregateBonded(signedAggregateTransaction, listener));
             this.logger.info(
                 `${this.getTransactionDescription(aggregateTransaction, signedAggregateTransaction, currency)} has been announced`,
             );
@@ -576,7 +573,7 @@ export class AnnounceService {
             const message =
                 `Aggregate Bonded Transaction ${signedAggregateTransaction.type} ${
                     signedAggregateTransaction.hash
-                } - signer ${signedAggregateTransaction.getSignerAddress().plain()} failed!! ` + e.message;
+                } - signer ${signedAggregateTransaction.getSignerAddress().plain()} failed!! ` + Utils.getMessage(e);
             this.logger.error(message);
             return false;
         }
@@ -616,7 +613,7 @@ export class AnnounceService {
         }
         try {
             this.logger.info(`Announcing ${this.getTransactionDescription(aggregateTransaction, signedAggregateTransaction, currency)}`);
-            await transactionService.announce(signedAggregateTransaction, listener).toPromise();
+            await firstValueFrom(transactionService.announce(signedAggregateTransaction, listener));
             this.logger.info(
                 `${this.getTransactionDescription(aggregateTransaction, signedAggregateTransaction, currency)} has been confirmed`,
             );
@@ -625,7 +622,7 @@ export class AnnounceService {
             const message =
                 `Aggregate Complete Transaction ${signedAggregateTransaction.type} ${
                     signedAggregateTransaction.hash
-                } - signer ${signedAggregateTransaction.getSignerAddress().plain()} failed!! ` + e.message;
+                } - signer ${signedAggregateTransaction.getSignerAddress().plain()} failed!! ` + Utils.getMessage(e);
             this.logger.error(message);
             return false;
         }
@@ -652,14 +649,14 @@ export class AnnounceService {
         }
         try {
             this.logger.info(`Announcing ${this.getTransactionDescription(transaction, signedTransaction, currency)}`);
-            await transactionService.announce(signedTransaction, listener).toPromise();
+            await firstValueFrom(transactionService.announce(signedTransaction, listener));
             this.logger.info(`${this.getTransactionDescription(transaction, signedTransaction, currency)} has been confirmed`);
             return true;
         } catch (e) {
             const message =
                 `Simple Transaction ${signedTransaction.type} ${signedTransaction.hash} - signer ${signedTransaction
                     .getSignerAddress()
-                    .plain()} failed!! ` + e.message;
+                    .plain()} failed!! ` + Utils.getMessage(e);
             this.logger.error(message);
             return false;
         }

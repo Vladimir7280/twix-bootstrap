@@ -34,18 +34,20 @@ import { Logger } from '../logger';
 import { Addresses, ConfigPreset, CustomPreset, GatewayConfigPreset, NodeAccount, PeerInfo } from '../model';
 import { AccountResolver, DefaultAccountResolver } from './AccountResolver';
 import { AddressesService } from './AddressesService';
-import { BootstrapUtils, KnownError, Password } from './BootstrapUtils';
 import { CertificateService, RenewMode } from './CertificateService';
 import { ConfigLoader } from './ConfigLoader';
 import { ConfigurationUtils } from './ConfigurationUtils';
 import { Constants } from './Constants';
 import { CryptoUtils } from './CryptoUtils';
 import { FileSystemService } from './FileSystemService';
+import { HandlebarsUtils } from './HandlebarsUtils';
+import { KnownError } from './KnownError';
 import { NemgenService } from './NemgenService';
 import { RemoteNodeService } from './RemoteNodeService';
 import { ReportParams, ReportService } from './ReportService';
+import { Utils } from './Utils';
 import { VotingParams, VotingService } from './VotingService';
-import { YamlUtils } from './YamlUtils';
+import { Password, YamlUtils } from './YamlUtils';
 
 /**
  * Defined presets.
@@ -57,11 +59,12 @@ export enum Preset {
 }
 
 export enum Assembly {
+    dual = 'dual',
+    peer = 'peer',
     api = 'api',
     demo = 'demo',
-    dual = 'dual',
     multinode = 'multinode',
-    peer = 'peer',
+    services = 'services',
 }
 
 export const defaultAssembly: Record<string, string> = {
@@ -83,10 +86,10 @@ export interface ConfigParams extends VotingParams, ReportParams {
     reset: boolean;
     upgrade: boolean;
     workingDir: string;
-    offline?: boolean;
+    offline: boolean;
     preset?: string;
     target: string;
-    password?: string;
+    password?: Password;
     user: string;
     assembly?: string;
     customPreset?: string;
@@ -185,8 +188,10 @@ export class ConfigService {
             await this.generateGateways(presetData);
             await this.generateExplorers(presetData, remoteNodeService);
             const isUpgrade = !!oldPresetData || !!oldAddresses;
-            await this.resolveNemesis(presetData, addresses, isUpgrade);
-            await this.copyNemesis(addresses);
+            if (presetData.nodes?.length) {
+                await this.resolveNemesis(presetData, addresses, isUpgrade);
+                await this.copyNemesis(addresses);
+            }
             if (this.params.report) {
                 await new ReportService(this.logger, this.params).run(presetData);
             }
@@ -199,10 +204,10 @@ export class ConfigService {
             this.logger.info(`Configuration generated.`);
             return { presetData, addresses };
         } catch (e) {
-            if (e.known) {
-                this.logger.error(e.message);
+            if ((e as any).known) {
+                this.logger.error(Utils.getMessage(e));
             } else {
-                this.logger.error(`Unknown error generating the configuration. ${e.message}`, e);
+                this.logger.error(`Unknown error generating the configuration. ${Utils.getMessage(e)}`, e);
                 this.logger.error(`The target folder '${target}' should be deleted!!!`);
             }
             throw e;
@@ -256,7 +261,7 @@ export class ConfigService {
             if (!presetData.nemesisSeedFolder) {
                 return undefined;
             }
-            return BootstrapUtils.resolveWorkingDirPath(this.params.workingDir, presetData.nemesisSeedFolder);
+            return Utils.resolveWorkingDirPath(this.params.workingDir, presetData.nemesisSeedFolder);
         };
 
         const presetNemesisSeedFolder = resolvePresetNemesisSeedFolder();
@@ -416,7 +421,7 @@ export class ConfigService {
         };
 
         this.logger.info(`Generating ${name} server configuration`);
-        await BootstrapUtils.generateConfiguration({ ...serverRecoveryConfig, ...templateContext }, copyFrom, serverConfig, excludeFiles);
+        await HandlebarsUtils.generateConfiguration({ ...serverRecoveryConfig, ...templateContext }, copyFrom, serverConfig, excludeFiles);
 
         const isPeer = (nodePresetData: PeerInfo): boolean => nodePresetData.metadata.roles.includes('Peer');
         const peers = knownPeers.filter((peer) => isPeer(peer) && peer.publicKey != account.main.publicKey);
@@ -443,7 +448,7 @@ export class ConfigService {
         }
         if (nodePreset.brokerName) {
             this.logger.info(`Generating ${nodePreset.brokerName} broker configuration`);
-            await BootstrapUtils.generateConfiguration(
+            await HandlebarsUtils.generateConfiguration(
                 { ...brokerRecoveryConfig, ...templateContext },
                 copyFrom,
                 brokerConfig,
@@ -516,7 +521,7 @@ export class ConfigService {
             this.logger.info(`Found ${transactions.length} provided in transactions.`);
         }
 
-        await BootstrapUtils.generateConfiguration(templateContext, copyFrom, moveTo);
+        await HandlebarsUtils.generateConfiguration(templateContext, copyFrom, moveTo);
         await new NemgenService(this.logger, this.params).run(presetData);
     }
 
@@ -621,7 +626,7 @@ export class ConfigService {
                 const templateContext = { ...generatedContext, ...presetData, ...gatewayPreset };
                 const name = templateContext.name || `rest-gateway-${index}`;
                 const moveTo = this.fileSystemService.getTargetGatewayFolder(this.params.target, false, name);
-                await BootstrapUtils.generateConfiguration(templateContext, copyFrom, moveTo);
+                await HandlebarsUtils.generateConfiguration(templateContext, copyFrom, moveTo);
                 const apiNodeConfigFolder = this.fileSystemService.getTargetNodesFolder(
                     this.params.target,
                     false,
@@ -635,14 +640,14 @@ export class ConfigService {
                     gatewayPreset.apiNodeName,
                     'cert',
                 );
-                await BootstrapUtils.generateConfiguration(
+                await HandlebarsUtils.generateConfiguration(
                     {},
                     apiNodeConfigFolder,
                     join(moveTo, 'api-node-config'),
                     [],
                     ['config-network.properties', 'config-node.properties'],
                 );
-                await BootstrapUtils.generateConfiguration(
+                await HandlebarsUtils.generateConfiguration(
                     {},
                     apiNodeCertFolder,
                     join(moveTo, 'api-node-config', 'cert'),
@@ -692,7 +697,7 @@ export class ConfigService {
                 const copyFrom = join(Constants.ROOT_FOLDER, 'config', 'explorer');
                 const fullName = `${presetData.baseNamespace}.${this.resolveCurrencyName(presetData)}`;
                 const namespaceId = new NamespaceId(fullName);
-                const { restNodes, defaultNode } = await this.resolveRests(presetData, remoteNodeService);
+                const { restNodes, defaultNode } = await remoteNodeService.resolveRestUrlsForServices();
                 const templateContext = {
                     namespaceName: fullName,
                     namespaceId: namespaceId.toHex(),
@@ -703,22 +708,9 @@ export class ConfigService {
                 };
                 const name = templateContext.name || `explorer-${index}`;
                 const moveTo = this.fileSystemService.getTargetFolder(this.params.target, false, Constants.targetExplorersFolder, name);
-                await BootstrapUtils.generateConfiguration(templateContext, copyFrom, moveTo);
+                await HandlebarsUtils.generateConfiguration(templateContext, copyFrom, moveTo);
             }),
         );
-    }
-
-    private async resolveRests(
-        presetData: ConfigPreset,
-        remoteNodeService: RemoteNodeService,
-    ): Promise<{ restNodes: string[]; defaultNode: string }> {
-        const restNodes: string[] = [];
-        presetData.gateways?.forEach((restService) => {
-            const nodePreset = presetData.nodes?.find((g) => g.name == restService.apiNodeName);
-            restNodes.push(`http://${restService.host || nodePreset?.host || 'localhost'}:3000`);
-        });
-        restNodes.push(...(await remoteNodeService.getRestUrls()));
-        return { restNodes: _.uniq(restNodes), defaultNode: restNodes[0] || 'http://localhost:3000' };
     }
 
     private cleanUpConfiguration(presetData: ConfigPreset) {

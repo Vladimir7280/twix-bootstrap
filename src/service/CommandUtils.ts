@@ -20,6 +20,7 @@ import { prompt } from 'inquirer';
 import { Convert, PublicAccount } from 'twix-sdk';
 import { Logger, LoggerFactory, LogType } from '../logger';
 import { Constants } from './Constants';
+import { Password } from './YamlUtils';
 
 export class CommandUtils {
     public static passwordPromptDefaultMessage = `Enter the password used to encrypt and decrypt custom presets, addresses.yml, and preset.yml files. When providing a password, private keys will be encrypted. Keep this password in a secure place!`;
@@ -37,6 +38,11 @@ export class CommandUtils {
 
     public static noPasswordFlag = flags.boolean({
         description: 'When provided, Bootstrap will not use a password, so private keys will be stored in plain text. Use with caution.',
+        default: false,
+    });
+
+    public static offlineFlag = flags.boolean({
+        description: 'If --offline is used, Bootstrap resolves the configuration without querying the running network.',
         default: false,
     });
 
@@ -69,7 +75,7 @@ export class CommandUtils {
 
     public static async resolvePassword(
         logger: Logger,
-        providedPassword: string | undefined,
+        providedPassword: Password | undefined,
         noPassword: boolean,
         message: string,
         log: boolean,

@@ -15,11 +15,14 @@
  */
 import fetch from 'cross-fetch';
 import { lookup } from 'dns';
+import * as _ from 'lodash';
+import { firstValueFrom } from 'rxjs';
 import { ChainInfo, RepositoryFactory, RepositoryFactoryHttp, RoleType } from 'twix-sdk';
 import { Configuration, NodeApi, NodeListFilter, RequestContext } from 'symbol-statistics-service-typescript-fetch-client';
 import { Logger } from '../logger';
 import { ConfigPreset, PeerInfo } from '../model';
-import { KnownError } from './BootstrapUtils';
+import { KnownError } from './KnownError';
+import { Utils } from './Utils';
 
 export interface RepositoryInfo {
     repositoryFactory: RepositoryFactory;
@@ -27,11 +30,7 @@ export interface RepositoryInfo {
     chainInfo: ChainInfo;
 }
 export class RemoteNodeService {
-    constructor(
-        private readonly logger: Logger,
-        private readonly presetData: ConfigPreset,
-        private readonly offline: boolean | undefined,
-    ) {}
+    constructor(private readonly logger: Logger, private readonly presetData: ConfigPreset, private readonly offline: boolean) {}
     private restUrls: string[] | undefined;
 
     public async resolveCurrentFinalizationEpoch(): Promise<number> {
@@ -104,14 +103,14 @@ export class RemoteNodeService {
                 urls.map(async (restGatewayUrl): Promise<RepositoryInfo | undefined> => {
                     const repositoryFactory = new RepositoryFactoryHttp(restGatewayUrl);
                     try {
-                        const chainInfo = await repositoryFactory.createChainRepository().getChainInfo().toPromise();
+                        const chainInfo = await firstValueFrom(repositoryFactory.createChainRepository().getChainInfo());
                         return {
                             restGatewayUrl,
                             repositoryFactory,
                             chainInfo,
                         };
                     } catch (e) {
-                        const message = `There has been an error talking to node ${restGatewayUrl}. Error: ${e.message}`;
+                        const message = `There has been an error talking to node ${restGatewayUrl}. Error: ${Utils.getMessage(e)}`;
                         this.logger.warn(message);
                         return undefined;
                     }
@@ -138,7 +137,9 @@ export class RemoteNodeService {
                 urls.push(...nodes.map((n) => n.apiStatus?.restGatewayUrl).filter((url): url is string => !!url));
             } catch (e) {
                 this.logger.warn(
-                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Rest urls cannot be resolved! Error ${e.message}`,
+                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Rest urls cannot be resolved! Error ${Utils.getMessage(
+                        e,
+                    )}`,
                 );
             }
         }
@@ -198,7 +199,9 @@ export class RemoteNodeService {
                 knownPeers.push(...peerInfos);
             } catch (error) {
                 this.logger.warn(
-                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Peers cannot be resolved! Error ${error.message}`,
+                    `There has been an error connecting to statistics ${statisticsServiceUrl}. Peers cannot be resolved! Error ${Utils.getMessage(
+                        error,
+                    )}`,
                 );
             }
         }
@@ -220,5 +223,19 @@ export class RemoteNodeService {
                 ],
             }),
         );
+    }
+
+    public async resolveRestUrlsForServices(): Promise<{ restNodes: string[]; defaultNode: string }> {
+        const restNodes: string[] = [];
+        this.presetData.gateways?.forEach((restService) => {
+            const nodePreset = this.presetData.nodes?.find((g) => g.name == restService.apiNodeName);
+            restNodes.push(`http://${restService.host || nodePreset?.host || 'localhost'}:3000`);
+        });
+        restNodes.push(...(await this.getRestUrls()));
+        const defaultNode = restNodes[0];
+        if (!defaultNode) {
+            throw new Error('Rest node could not be resolved!');
+        }
+        return { restNodes: _.uniq(restNodes), defaultNode: defaultNode };
     }
 }

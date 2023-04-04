@@ -3,8 +3,48 @@
 All notable changes to this project will be documented in this file.
 
 The changelog format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+## [1.1.9] - Nov-09-2022
 
-## [1.1.4] - NEXT
+**Milestone**: Mainnet(1.0.3.5)
+
+| Package          | Version | Link                                                               |
+| ---------------- |---------| ------------------------------------------------------------------ |
+| Symbol Bootstrap | v1.1.9  | [symbol-bootstrap](https://www.npmjs.com/package/symbol-bootstrap) |
+
+- Testnet reset(sainet).
+- Update to [Catapult Client v1.0.3.5](https://github.com/symbol/symbol/releases/tag/client%2Fcatapult%2Fv1.0.3.5)
+
+## [1.1.8] - Oct-25-2022
+
+**Milestone**: Mainnet(1.0.3.4)
+
+| Package          | Version | Link                                                               |
+| ---------------- |---------| ------------------------------------------------------------------ |
+| Symbol Bootstrap | v1.1.8  | [symbol-bootstrap](https://www.npmjs.com/package/symbol-bootstrap) |
+
+- (BREAKING FORK) catapult client register aggregate transaction hash validator and require aggregate version 2 after fork
+
+## [1.1.6] - Mar-16-2022
+
+**Milestone**: Mainnet(1.0.3.3)
+
+| Package          | Version | Link                                                               |
+| ---------------- |---------| ------------------------------------------------------------------ |
+| Symbol Bootstrap | v1.1.6  | [symbol-bootstrap](https://www.npmjs.com/package/symbol-bootstrap) |
+
+- Fixed openssl security vulnerability [issue](https://www.opencve.io/cve/CVE-2022-0778)
+
+## [1.1.5] - Mar-1-2022
+
+**Milestone**: Mainnet(1.0.3.1)
+
+| Package          | Version | Link                                                               |
+| ---------------- |---------| ------------------------------------------------------------------ |
+| Symbol Bootstrap | v1.1.5  | [symbol-bootstrap](https://www.npmjs.com/package/symbol-bootstrap) |
+
+- Fixed undefined error circular dependency when using PROMPT_MAIN. Issue #378.
+
+## [1.1.4] - Feb-4-2022
 
 **Milestone**: Mainnet(1.0.3.1)
 
@@ -14,6 +54,8 @@ The changelog format is based on [Keep a Changelog](https://keepachangelog.com/e
 
 - `BootstrapUtils` code clean up split.
 - Allowing user provided compose services via custom preset.
+- Added `services` assembly.
+- Lib upgrades.
 
 ## [1.1.3] - Jan-21-2022
 

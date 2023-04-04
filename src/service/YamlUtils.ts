@@ -17,9 +17,11 @@
 import { promises as fsPromises, readFileSync } from 'fs';
 import * as yaml from 'js-yaml';
 import { dirname } from 'path';
-import { KnownError, Password } from './BootstrapUtils';
 import { CryptoUtils } from './CryptoUtils';
+import { KnownError } from './KnownError';
 import { Utils } from './Utils';
+
+export type Password = string | false | undefined;
 
 /**
  * Utility methods in charge of loading and saving yaml files (and text files).
@@ -29,7 +31,7 @@ export class YamlUtils {
         return string.toLowerCase().endsWith('.yml') || string.toLowerCase().endsWith('.yaml');
     }
 
-    public static async writeYaml(path: string, object: unknown, password: string | undefined): Promise<void> {
+    public static async writeYaml(path: string, object: unknown, password: Password): Promise<void> {
         const yamlString = this.toYaml(password ? CryptoUtils.encrypt(object, Utils.validatePassword(password)) : object);
         await this.writeTextFile(path, yamlString);
     }
@@ -65,7 +67,7 @@ export class YamlUtils {
         const mkdirParentFolder = async (fileName: string): Promise<void> => {
             const parentFolder = dirname(fileName);
             if (parentFolder) {
-                return fsPromises.mkdir(parentFolder, { recursive: true });
+                await fsPromises.mkdir(parentFolder, { recursive: true });
             }
         };
         await mkdirParentFolder(path);
