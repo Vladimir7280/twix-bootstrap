@@ -1,6 +1,0 @@
-{
-    "entry": ["src/**/*.ts"],
-    "splitting": false,
-    "sourcemap": true,
-    "clean": true
-  }
