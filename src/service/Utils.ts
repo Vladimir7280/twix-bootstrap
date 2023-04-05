@@ -16,7 +16,7 @@
 
 import * as _ from 'lodash';
 import { isAbsolute, join } from 'path';
-import { NetworkType } from 'symbol-sdk';
+import { NetworkType } from 'twix-sdk';
 import { KnownError } from './KnownError';
 import { OSUtils } from './OSUtils';
 
