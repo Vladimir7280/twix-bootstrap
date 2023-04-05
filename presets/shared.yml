@@ -231,6 +231,7 @@ statisticsServiceRestLimit: 10
 treasuryReissuanceTransactionSignatures_has_items: false
 corruptAggregateTransactionHashes_has_items: false
 treasuryReissuanceTransactionSignatures: []
+corruptAggregateTransactionHashes: []
 
 #price.plugin ->
 initialSupply: 108000000000000
