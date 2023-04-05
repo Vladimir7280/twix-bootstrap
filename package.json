@@ -25,11 +25,11 @@
         "rxjs": "^7.5.2",
         "semver": "^7.3.5",
         "shx": "^0.3.2",
-        "symbol-statistics-service-typescript-fetch-client": "^1.1.3",
-        "tslib": "^1.13.0",
+        "symbol-statistics-service-typescript-fetch-client": "^1.1.5",
+        "tslib": "^2.3.1",
         "twix-sdk": "^2.0.3",
-        "utf8": "^2.1.2",
-        "winston": "^3.3.3"
+        "utf8": "^3.0.0",
+        "winston": "^3.5.1"
     },
     "devDependencies": {
         "@oclif/dev-cli": "^1.26.10",
@@ -109,7 +109,7 @@
         "oclif-doc": "oclif-dev manifest && oclif-dev readme --multi",
         "oclif-debug": "env DEBUG=* oclif-dev manifest",
         "watch": "tsc -b -w",
-        "compile": "tsup",
+        "compile": "tsc -b",
         "build": "npm run clean && npm run compile",
         "prepack": "npm run build && npm run oclif-doc",
         "test": "nyc --reporter=lcov --extension .ts mocha -r ts-node/register --timeout 900000 --forbid-only \"test/**/*.test.ts\"",
