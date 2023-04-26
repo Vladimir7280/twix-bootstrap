@@ -64,7 +64,7 @@ maxNameSize: 64
 maxChildNamespaces: 256
 maxNamespaceDepth: 3
 batchVerificationRandomSource:
-symbolServerImage: vladimir7280/symbol-server-private:twix-server-1.0.3.5a
+symbolServerImage: vladimir7280/symbol-server-private:twix-server-1.0.3.5
 symbolRestImage: vladimir7280/symbol-server-private:twix-rest-api.2.4.0.3g
 symbolExplorerImage: 
 symbolFaucetImage: 
